@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Argotic.Common">
+      <HintPath>..\packages\Argotic.Common.2008.0.2.0\lib\Net35\Argotic.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Argotic.Core">
+      <HintPath>..\packages\Argotic.Core.2008.0.2.0\lib\Net35\Argotic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Argotic.Extensions">
+      <HintPath>..\packages\Argotic.Extensions.2008.0.2.0\lib\Net35\Argotic.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
@@ -49,10 +58,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="NewsServiceFixture.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZTG.WPF.Dashboard.Main\ZTG.WPF.Dashboard.Main.csproj">
+      <Project>{54F916B0-B230-4378-B9DA-7B814186A2B3}</Project>
+      <Name>ZTG.WPF.Dashboard.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZTG.WPF.Dashboard.Shared.UserInterface\ZTG.WPF.Dashboard.Shared.UserInterface.csproj">
+      <Project>{8FE98242-92E5-403C-A563-D0E32A1C481E}</Project>
+      <Name>ZTG.WPF.Dashboard.Shared.UserInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZTG.WPF.Dashboard.Shared\ZTG.WPF.Dashboard.Shared.csproj">
+      <Project>{2C1082EE-00CD-4F88-A7A5-19E79175B88B}</Project>
+      <Name>ZTG.WPF.Dashboard.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
