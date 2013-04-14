@@ -32,10 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\Libraries\Microsoft\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -54,6 +60,12 @@
     <Compile Include="Converter\NullableToBoolConverter.cs" />
     <Compile Include="Converter\NullToVisibilityConverter.cs" />
     <Compile Include="Converter\ValueConverterMarkupExtensionBase.cs" />
+    <Compile Include="DataAccess\DataAccessHelper.cs" />
+    <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="DataAccess\EntityHelper.cs" />
+    <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="DataAccess\ITransactionScope.cs" />
+    <Compile Include="DataAccess\TransactionScope.cs" />
     <Compile Include="Data\DefaultStringConverter.cs" />
     <Compile Include="Data\Deserializer.cs" />
     <Compile Include="Data\DeserializerBase.cs" />
@@ -98,7 +110,10 @@
     <Compile Include="WPF\NotificationObject.cs" />
     <Compile Include="WPF\VisualTreeHelperExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
