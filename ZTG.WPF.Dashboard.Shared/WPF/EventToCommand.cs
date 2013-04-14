@@ -43,18 +43,18 @@ namespace ZTG.WPF.Dashboard.Shared.WPF
     ///   Identifies the <see cref="Command" /> dependency property
     /// </summary>
     public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
-      "Command", 
-      typeof(ICommand), 
-      typeof(EventToCommand), 
+      "Command",
+      typeof(ICommand),
+      typeof(EventToCommand),
       new PropertyMetadata(null, (s, e) => OnCommandChanged(s as EventToCommand, e)));
 
     /// <summary>
     ///   Identifies the <see cref="CommandParameter" /> dependency property
     /// </summary>
     public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
-      "CommandParameter", 
-      typeof(object), 
-      typeof(EventToCommand), 
+      "CommandParameter",
+      typeof(object),
+      typeof(EventToCommand),
       new PropertyMetadata(null, (s, e) => OnCommandParameterChanged(s as EventToCommand)));
 
     /// <summary>
@@ -62,9 +62,9 @@ namespace ZTG.WPF.Dashboard.Shared.WPF
     /// </summary>
     public static readonly DependencyProperty MustToggleIsEnabledProperty =
       DependencyProperty.Register(
-        "MustToggleIsEnabled", 
-        typeof(bool), 
-        typeof(EventToCommand), 
+        "MustToggleIsEnabled",
+        typeof(bool),
+        typeof(EventToCommand),
         new PropertyMetadata(false, (s, e) => OnMustToggleIsEnabledChanged(s as EventToCommand)));
 
     /// <summary>

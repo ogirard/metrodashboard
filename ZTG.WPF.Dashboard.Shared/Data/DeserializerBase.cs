@@ -160,7 +160,7 @@ namespace ZTG.WPF.Dashboard.Shared.Data
         {
           return bytes.ToArray();
         }
-        
+
         bytes.Add(b);
       }
     }

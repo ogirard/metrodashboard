@@ -1,0 +1,10 @@
+﻿<LocalizeItems>
+  
+  <!-- Shared UserInterface -->
+  <LocalizeItem id="ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox.DefaultTitle">Info</LocalizeItem>
+  
+  <!--  Error Handling  -->
+  <LocalizeItem id="ZTG.WPF.Dashboard.Main.ExceptionHandler.Title">Error</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.Main.ExceptionHandler.Error">Error</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.Main.ExceptionHandler.Description">The application will shut down.</LocalizeItem>
+</LocalizeItems>

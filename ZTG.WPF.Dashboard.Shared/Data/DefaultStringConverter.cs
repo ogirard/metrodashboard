@@ -24,12 +24,12 @@ namespace ZTG.WPF.Dashboard.Shared.Data
     /// <summary>
     /// The check value format.
     /// </summary>
-    [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible", 
+    [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible",
       Justification = "OK, that's only used in this context")]
     public enum CheckValueFormat
     {
       /// <summary />
-      Hex, 
+      Hex,
 
       /// <summary />
       Decimal
@@ -490,7 +490,7 @@ namespace ZTG.WPF.Dashboard.Shared.Data
     /// <exception cref="ArgumentException">
     /// Thrown if <paramref name="value"/> is of wrong type
     /// </exception>
-    [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "unsigned", 
+    [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "unsigned",
       Justification = "We want this name")]
     public static uint ConvertToUnsignedNumber(string value)
     {
@@ -718,9 +718,9 @@ namespace ZTG.WPF.Dashboard.Shared.Data
       {
         throw new ArgumentException(
           string.Format(
-            CultureInfo.InvariantCulture, 
-            "Element value is not of desired type '{0}' or type is invalid", 
-            typeof(TEnum).Name), 
+            CultureInfo.InvariantCulture,
+            "Element value is not of desired type '{0}' or type is invalid",
+            typeof(TEnum).Name),
           ex);
       }
     }
@@ -800,7 +800,7 @@ namespace ZTG.WPF.Dashboard.Shared.Data
     /// <returns>
     /// The secure string or <tt>null</tt> if the value is null or empty
     /// </returns>
-    [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", 
+    [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
       Justification = "Cannot be disposed here!")]
     public static SecureString ConvertToSecureString(string value)
     {

@@ -15,7 +15,7 @@ namespace ZTG.WPF.Dashboard.Shared.Data
   /// <summary>
   ///   Deserializes data from Little-Endian format.
   /// </summary>
-  [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Deserializer", 
+  [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Deserializer",
     Justification = "That's ok!")]
   public class Deserializer : DeserializerBase, IDisposable
   {

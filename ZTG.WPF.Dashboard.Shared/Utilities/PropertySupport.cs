@@ -28,7 +28,7 @@ namespace ZTG.WPF.Dashboard.Shared.Utilities
     /// <returns>
     /// The <see cref="string"/>.
     /// </returns>
-    [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", 
+    [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures",
       Justification = "By design")]
     public static string ExtractPropertyName<T>(Expression<Func<T>> propertyExpression)
     {

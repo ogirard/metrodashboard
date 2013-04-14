@@ -100,7 +100,7 @@ namespace ZTG.WPF.Dashboard.Shared.Extensions
     /// <exception cref="ArgumentException">
     /// Thrown if child element with given name does not exist or value is of wrong type
     /// </exception>
-    [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "unsigned", 
+    [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "unsigned",
       Justification = "We want this name")]
     public static uint GetElementUnsignedNumberValue(this XContainer element, XName child)
     {

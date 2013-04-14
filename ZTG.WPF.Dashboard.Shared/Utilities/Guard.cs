@@ -9,8 +9,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
-using Microsoft.SqlServer.Server;
-
 using ZTG.WPF.Dashboard.Shared.Extensions;
 
 namespace ZTG.WPF.Dashboard.Shared.Utilities

@@ -23,7 +23,7 @@ namespace ZTG.WPF.Dashboard.Shared.Data
     /// <param name="value">
     /// The value.
     /// </param>
-    [SuppressMessage("CAG Code Analysis Rules", "CAG1000:GuidToByteArrayForbidden", 
+    [SuppressMessage("CAG Code Analysis Rules", "CAG1000:GuidToByteArrayForbidden",
       Justification = "Needed here as a base case.")]
     public void Write(Guid value)
     {

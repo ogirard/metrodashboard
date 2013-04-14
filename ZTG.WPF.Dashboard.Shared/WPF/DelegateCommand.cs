@@ -113,7 +113,7 @@ namespace ZTG.WPF.Dashboard.Shared.WPF
     /// <summary>
     ///   Raises <see cref="CanExecuteChanged" />
     /// </summary>
-    [SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate", 
+    [SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate",
       Justification = "Not appropriate in this place")]
     public void RaiseCanExecuteChanged()
     {
@@ -129,7 +129,7 @@ namespace ZTG.WPF.Dashboard.Shared.WPF
   /// </summary>
   /// <typeparam name="T">
   /// </typeparam>
-  [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", 
+  [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass",
     Justification = "Is OK here")]
   public class DelegateCommand<T> : ICommand
   {
@@ -233,7 +233,7 @@ namespace ZTG.WPF.Dashboard.Shared.WPF
     /// <summary>
     ///   Raises <see cref="CanExecuteChanged" />
     /// </summary>
-    [SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate", 
+    [SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate",
       Justification = "Not appropriate in this place")]
     public void RaiseCanExecuteChanged()
     {

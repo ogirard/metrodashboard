@@ -35,7 +35,7 @@ namespace ZTG.WPF.Dashboard.Shared.WPF
     /// <returns>
     /// True, if the field has changed and therefore the value has been updated, false otherwise
     /// </returns>
-    [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "0#", 
+    [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "0#",
       Justification = "OK in this case")]
     public bool ChangeAndNotify<TField>(ref TField field, TField fieldValue, string propertyName)
     {

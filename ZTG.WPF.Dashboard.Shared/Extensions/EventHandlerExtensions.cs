@@ -82,7 +82,7 @@ namespace ZTG.WPF.Dashboard.Shared.Extensions
     /// <param name="args">
     /// The <see cref="System.EventArgs"/> instance containing the event data.
     /// </param>
-    [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "1#", 
+    [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "1#",
       Justification = "OK in this case")]
     public static void ChangeAndNotify<TField>(
       this EventHandler handler, ref TField field, TField fieldValue, object sender, EventArgs args)
@@ -118,7 +118,7 @@ namespace ZTG.WPF.Dashboard.Shared.Extensions
     /// <param name="args">
     /// The <see cref="System.EventArgs"/> instance containing the event data.
     /// </param>
-    [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "1#", 
+    [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "1#",
       Justification = "OK in this case")]
     public static void ChangeAndNotify<TField, TArgs>(
       this EventHandler<TArgs> handler, ref TField field, TField fieldValue, object sender, TArgs args)

@@ -73,6 +73,7 @@
     <Compile Include="Extensions\MergeStylesExtension.cs" />
     <Compile Include="Extensions\PropertyChangedEventHandlerExtensions.cs" />
     <Compile Include="Extensions\ResourceDictionaryExtensions.cs" />
+    <Compile Include="Extensions\StringBuilderExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\StyleExtensionMethods.cs" />
     <Compile Include="Extensions\XmlExtensions.cs" />
