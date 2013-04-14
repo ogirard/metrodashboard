@@ -15,7 +15,8 @@ using System.Windows.Threading;
 
 using ZTG.WPF.Dashboard.Shared.Extensions;
 using ZTG.WPF.Dashboard.Shared.Localization;
-using ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox;
+using ZTG.WPF.Dashboard.Shared.UserInterface.Navigation;
+using ZTG.WPF.Dashboard.Shared.UserInterface.Window;
 using ZTG.WPF.Dashboard.Shared.Utilities;
 
 namespace ZTG.WPF.Dashboard.Main

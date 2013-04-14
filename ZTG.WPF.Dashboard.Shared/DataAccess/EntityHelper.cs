@@ -12,6 +12,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
+using ZTG.WPF.Dashboard.Shared.Utilities;
+
 namespace ZTG.WPF.Dashboard.Shared.DataAccess
 {
   /// <summary>

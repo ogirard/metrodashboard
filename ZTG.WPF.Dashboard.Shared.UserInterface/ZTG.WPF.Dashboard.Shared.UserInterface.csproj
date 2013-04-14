@@ -50,16 +50,107 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MessageBox\ZMessageBox.xaml">
+    <Compile Include="Item\MetroToolButton.xaml.cs">
+      <DependentUpon>MetroToolButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualResources\Constants.cs" />
+    <Compile Include="Item\MetroBullet.xaml.cs">
+      <DependentUpon>MetroBullet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Item\MetroButton.xaml.cs">
+      <DependentUpon>MetroButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Item\MetroIcon.xaml.cs">
+      <DependentUpon>MetroIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Item\MetroImage.xaml.cs">
+      <DependentUpon>MetroImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Item\MetroInfoPanel.xaml.cs">
+      <DependentUpon>MetroInfoPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Item\MetroLabel.xaml.cs">
+      <DependentUpon>MetroLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Item\MetroSeparator.xaml.cs">
+      <DependentUpon>MetroSeparator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Item\MetroStatusIcon.xaml.cs">
+      <DependentUpon>MetroStatusIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MetroTemplateViewBase.cs" />
+    <Compile Include="VisualResources\Resources.xaml.cs">
+      <DependentUpon>Resources.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\ButtonType.cs" />
+    <Compile Include="Window\MessageInfo.cs" />
+    <Compile Include="Window\MetroDialogWindow.cs" />
+    <Compile Include="Window\MetroMessageBox.xaml.cs">
+      <DependentUpon>MetroMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\MetroSimpleDialogButtonViewModel.cs" />
+    <Compile Include="Window\MetroSimpleDialogView.cs" />
+    <Compile Include="Window\MetroSimpleDialogViewModelBase.cs" />
+    <Compile Include="Window\MetroWindow.cs" />
+    <Compile Include="Window\MetroWindowBase.cs" />
+    <Compile Include="Window\MetroWindowCaption.xaml.cs">
+      <DependentUpon>MetroWindowCaption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\MetroWindowCaptionButton.cs" />
+    <Compile Include="Window\WindowExtensions.cs" />
+    <Compile Include="Navigation\MessageBoxProvider.cs" />
+    <Page Include="Item\MetroBullet.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="MessageBox\MessageBoxProvider.cs" />
-    <Compile Include="MessageBox\MessageInfo.cs" />
-    <Compile Include="MessageBox\ZMessageBox.xaml.cs">
-      <DependentUpon>ZMessageBox.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="Item\MetroButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Item\MetroIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Item\MetroImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Item\MetroInfoPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Item\MetroLabel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Item\MetroSeparator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Item\MetroStatusIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Item\MetroToolButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VisualResources\Images\Images.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VisualResources\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window\MetroMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window\MetroWindowCaption.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -90,6 +181,12 @@
       <Project>{2C1082EE-00CD-4F88-A7A5-19E79175B88B}</Project>
       <Name>ZTG.WPF.Dashboard.Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Container\" />
+    <Folder Include="Data\" />
+    <Folder Include="VisualResources\Controls\" />
+    <Folder Include="VisualResources\Defaults\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

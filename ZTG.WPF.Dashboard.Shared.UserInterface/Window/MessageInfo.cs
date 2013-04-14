@@ -12,7 +12,7 @@ using System.Windows;
 using ZTG.WPF.Dashboard.Shared.Localization;
 using ZTG.WPF.Dashboard.Shared.Utilities;
 
-namespace ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox
+namespace ZTG.WPF.Dashboard.Shared.UserInterface.Window
 {
   /// <summary>
   /// MessageBox information
@@ -83,7 +83,7 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox
       get
       {
         var text = new StringBuilder();
-        text.AppendLine("Dashboard Dialog mainMessage");
+        text.AppendLine("Dashboard Dialog Main Message:");
         text.AppendLine(_createdTimeStamp.ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture));
         text.AppendLine();
         text.AppendLine(MainMessage);

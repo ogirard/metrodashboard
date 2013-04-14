@@ -59,6 +59,7 @@
     <Compile Include="Converter\EnumToBoolConverter.cs" />
     <Compile Include="Converter\NullableToBoolConverter.cs" />
     <Compile Include="Converter\NullToVisibilityConverter.cs" />
+    <Compile Include="Converter\RemoveLineBreakConverter.cs" />
     <Compile Include="Converter\ValueConverterMarkupExtensionBase.cs" />
     <Compile Include="DataAccess\DataAccessHelper.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
@@ -89,6 +90,18 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\StyleExtensionMethods.cs" />
     <Compile Include="Extensions\XmlExtensions.cs" />
+    <Compile Include="Localization\WPF\BindingProvider.cs" />
+    <Compile Include="Localization\WPF\DataEventArgs.cs" />
+    <Compile Include="Localization\WPF\DynamicTranslateExtension.cs" />
+    <Compile Include="Localization\WPF\FlowDirectionManager.cs" />
+    <Compile Include="Localization\WPF\Internal\DynamicObjectToTranslationConverter.cs" />
+    <Compile Include="Localization\WPF\Internal\ITranslatedStringFormatter.cs" />
+    <Compile Include="Localization\WPF\Internal\TranslationSource.cs" />
+    <Compile Include="Localization\WPF\TranslateBindingExtension.cs" />
+    <Compile Include="Localization\WPF\TranslateExtension.cs" />
+    <Compile Include="Localization\WPF\TranslationData.cs" />
+    <Compile Include="Native\NativeMethods.cs" />
+    <Compile Include="Native\WindowResizeDirection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Localization\ITranslationProvider.cs" />
     <Compile Include="Localization\TranslationManager.cs" />
@@ -109,6 +122,7 @@
     <Compile Include="WPF\EventToCommand.cs" />
     <Compile Include="WPF\NotificationObject.cs" />
     <Compile Include="WPF\VisualTreeHelperExtensions.cs" />
+    <Compile Include="WPF\WpfHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

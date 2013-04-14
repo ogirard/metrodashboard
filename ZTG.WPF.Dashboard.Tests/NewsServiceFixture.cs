@@ -27,7 +27,7 @@ namespace ZTG.WPF.Dashboard.Tests
 
       // Act
       var feed = target.LoadFeed(feedUri);
-
+      
       // Assert
       Assert.IsNotNull(feed);
     }

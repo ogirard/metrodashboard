@@ -1,19 +1,17 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ZMessageBox.xaml.cs" company="Zühlke Engineering AG">
+// <copyright file="MetroImage.xaml.cs" company="Zühlke Engineering AG">
 //   (c) by Zühlke Engineering AG 2013
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Windows;
-
-namespace ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox
+namespace ZTG.WPF.Dashboard.Shared.UserInterface.Item
 {
   /// <summary>
-  /// Interaction logic for ZMessageBox.xaml
+  /// Interaction logic for MetroImage.xaml
   /// </summary>
-  public partial class ZMessageBox : Window
+  public partial class MetroImage
   {
-    public ZMessageBox()
+    public MetroImage()
     {
       InitializeComponent();
     }

@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    <!--  This file contains all images of TCG.MS.UserInterface.Controls. It is loaded in VisualResources/Resources.xaml.  -->
+    <!--  <ImageSource x:Key="appIcon16ImageSource" po:Freeze="True">icon_16.png</ImageSource>  -->
+</ResourceDictionary>

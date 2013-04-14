@@ -25,7 +25,6 @@ namespace ZTG.WPF.Dashboard.Main
       //// var service = new CustomerService(dataAccess);
       //// var uiService = new CustomerUIService(service, _navigationInfo);
       //// var mainViewModel = new CustomersViewModel(uiService);
-
       var mainWindowViewVodel = new MainWindowViewModel();
       //// mainWindowViewVodel.CustomersViewModel = mainViewModel;
       mainWindow.ViewModel = mainWindowViewVodel;

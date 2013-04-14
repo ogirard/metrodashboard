@@ -4,9 +4,10 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using ZTG.WPF.Dashboard.Shared.UserInterface.Window;
 using ZTG.WPF.Dashboard.Shared.Utilities;
 
-namespace ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox
+namespace ZTG.WPF.Dashboard.Shared.UserInterface.Navigation
 {
   public class MessageBoxProvider
   {
@@ -14,7 +15,7 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox
     {
       messageInfo.ArgumentNotNull("messageInfo");
 
-      var messageBox = new ZMessageBox();
+      var messageBox = new MetroMessageBox(messageInfo);
       messageBox.ShowDialog();
     }
   }
