@@ -1,0 +1,31 @@
+﻿<ResourceDictionary x:Class="ZTG.WPF.Dashboard.Shared.UserInterface.Styles.Resources"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <ResourceDictionary.MergedDictionaries>
+    <!--  MahApps.Metro resources  -->
+    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+    <!--  Default resources  -->
+    <ResourceDictionary Source="Defaults/Basics.xaml" />
+    <ResourceDictionary Source="Defaults/Colors.xaml" />
+    <ResourceDictionary Source="Defaults/Brushes.xaml" />
+
+    <!--  Image resources  -->
+    <ResourceDictionary Source="Images/Images.xaml" />
+    <ResourceDictionary Source="Images/Icons.xaml" />
+
+    <!--  Controsl resources  -->
+    <ResourceDictionary Source="Controls/Windows.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <!--
+    The following Style is needed to fix an issue with merging dictionaries inside an empty dictionary in .NET 4.0
+    See also http://www.wpftutorial.net/MergedDictionaryPerformance.html
+  -->
+  <Style TargetType="{x:Type Ellipse}" />
+</ResourceDictionary>

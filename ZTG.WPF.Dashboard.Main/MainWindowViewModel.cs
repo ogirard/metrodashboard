@@ -45,4 +45,3 @@ namespace ZTG.WPF.Dashboard.Main
     }
   }
 }
-

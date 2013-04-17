@@ -14,9 +14,6 @@ using System.Windows;
 using System.Windows.Threading;
 
 using ZTG.WPF.Dashboard.Shared.Extensions;
-using ZTG.WPF.Dashboard.Shared.Localization;
-using ZTG.WPF.Dashboard.Shared.UserInterface.Navigation;
-using ZTG.WPF.Dashboard.Shared.UserInterface.Window;
 using ZTG.WPF.Dashboard.Shared.Utilities;
 
 namespace ZTG.WPF.Dashboard.Main
@@ -91,23 +88,23 @@ namespace ZTG.WPF.Dashboard.Main
     public static void ShowErrorMessage(string message, string details, Window mainWindow)
     {
       message.ArgumentNotNullOrEmpty("message");
-      var messageInfo = GetMessageInfo(message, details);
-      MessageBoxProvider.ShowMessageBox(messageInfo);
+      //// var messageInfo = GetMessageInfo(message, details);
+      //// MessageBoxProvider.ShowMessageBox(messageInfo);
     }
 
-    private static MessageInfo GetMessageInfo(string message, string details)
-    {
-      var messageInfo = new MessageInfo(message)
-      {
-        Caption = "ZTG.WPF.Dashboard.Main.ExceptionHandler.Error".TranslateText(),
-        Description = "ZTG.WPF.Dashboard.Main.ExceptionHandler.Description".TranslateText(),
-        Details = details,
-        Buttons = MessageBoxButton.OK,
-        Image = MessageBoxImage.Error
-      };
+    ////private static MessageInfo GetMessageInfo(string message, string details)
+    ////{
+    ////  var messageInfo = new MessageInfo(message)
+    ////  {
+    ////    Caption = "ZTG.WPF.Dashboard.Main.ExceptionHandler.Error".TranslateText(),
+    ////    Description = "ZTG.WPF.Dashboard.Main.ExceptionHandler.Description".TranslateText(),
+    ////    Details = details,
+    ////    Buttons = MessageBoxButton.OK,
+    ////    Image = MessageBoxImage.Error
+    ////  };
 
-      return messageInfo;
-    }
+    ////  return messageInfo;
+    ////}
 
     private static string GetExceptionMessage(Exception exception)
     {

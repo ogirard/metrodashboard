@@ -1,3 +1,0 @@
-﻿<TextBlock x:Class="ZTG.WPF.Dashboard.Shared.UserInterface.Item.MetroLabel"
-           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />

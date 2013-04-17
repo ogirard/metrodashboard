@@ -35,8 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MahApps.Metro, Version=0.11.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MahApps.Metro.0.11.0.9-ALPHA\lib\net40\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.0.11.0.9-ALPHA\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -50,106 +57,44 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Item\MetroToolButton.xaml.cs">
-      <DependentUpon>MetroToolButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="VisualResources\Constants.cs" />
-    <Compile Include="Item\MetroBullet.xaml.cs">
-      <DependentUpon>MetroBullet.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Item\MetroButton.xaml.cs">
-      <DependentUpon>MetroButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Item\MetroIcon.xaml.cs">
-      <DependentUpon>MetroIcon.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Item\MetroImage.xaml.cs">
-      <DependentUpon>MetroImage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Item\MetroInfoPanel.xaml.cs">
-      <DependentUpon>MetroInfoPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Item\MetroLabel.xaml.cs">
-      <DependentUpon>MetroLabel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Item\MetroSeparator.xaml.cs">
-      <DependentUpon>MetroSeparator.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Item\MetroStatusIcon.xaml.cs">
-      <DependentUpon>MetroStatusIcon.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MetroTemplateViewBase.cs" />
-    <Compile Include="VisualResources\Resources.xaml.cs">
+    <Compile Include="Styles\Resources.xaml.cs">
       <DependentUpon>Resources.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window\ButtonType.cs" />
-    <Compile Include="Window\MessageInfo.cs" />
-    <Compile Include="Window\MetroDialogWindow.cs" />
-    <Compile Include="Window\MetroMessageBox.xaml.cs">
-      <DependentUpon>MetroMessageBox.xaml</DependentUpon>
+    <Compile Include="Windows\MDWindow.cs" />
+    <Compile Include="Windows\MDWindowHeader.xaml.cs">
+      <DependentUpon>MDWindowHeader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window\MetroSimpleDialogButtonViewModel.cs" />
-    <Compile Include="Window\MetroSimpleDialogView.cs" />
-    <Compile Include="Window\MetroSimpleDialogViewModelBase.cs" />
-    <Compile Include="Window\MetroWindow.cs" />
-    <Compile Include="Window\MetroWindowBase.cs" />
-    <Compile Include="Window\MetroWindowCaption.xaml.cs">
-      <DependentUpon>MetroWindowCaption.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window\MetroWindowCaptionButton.cs" />
-    <Compile Include="Window\WindowExtensions.cs" />
-    <Compile Include="Navigation\MessageBoxProvider.cs" />
-    <Page Include="Item\MetroBullet.xaml">
+    <Page Include="Styles\Controls\Windows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Defaults\Basics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Defaults\Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Defaults\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Images\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Item\MetroButton.xaml">
+    <Page Include="Styles\Images\Images.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Item\MetroIcon.xaml">
+    <Page Include="Styles\Resources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Item\MetroImage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Windows\MDWindowHeader.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Item\MetroInfoPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Item\MetroLabel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Item\MetroSeparator.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Item\MetroStatusIcon.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Item\MetroToolButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="VisualResources\Images\Images.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="VisualResources\Resources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Window\MetroMessageBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Window\MetroWindowCaption.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -170,11 +115,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Styles\Fonts\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZTG.WPF.Dashboard.Shared\ZTG.WPF.Dashboard.Shared.csproj">
@@ -182,11 +129,9 @@
       <Name>ZTG.WPF.Dashboard.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Container\" />
-    <Folder Include="Data\" />
-    <Folder Include="VisualResources\Controls\" />
-    <Folder Include="VisualResources\Defaults\" />
+    <Resource Include="Styles\Fonts\Entypo-license.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
