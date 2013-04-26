@@ -133,7 +133,11 @@
       <Name>ZTG.WPF.Dashboard.Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\filter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Language\ZTG.WPF.Dashboard.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

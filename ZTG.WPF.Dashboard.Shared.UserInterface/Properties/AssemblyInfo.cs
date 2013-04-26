@@ -26,6 +26,7 @@ using System.Windows.Markup;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // TCG Xml Namespace exports
-[assembly: XmlnsPrefix("http://ztg.wpf.dashboard/ui", "ui")]
-[assembly: XmlnsDefinition("http://ztg.wpf.dashboard/ui", "ZTG.WPF.Dashboard.Shared.UserInterface")]
-[assembly: XmlnsDefinition("http://ztg.wpf.dashboard/ui", "ZTG.WPF.Dashboard.Shared.UserInterface.Windows")]
+////[assembly: XmlnsPrefix("http://ztg.wpf.dashboard/ui", "ui")]
+////[assembly: XmlnsDefinition("http://ztg.wpf.dashboard/ui", "ZTG.WPF.Dashboard.Shared.UserInterface")]
+////[assembly: XmlnsDefinition("http://ztg.wpf.dashboard/ui", "ZTG.WPF.Dashboard.Shared.UserInterface.Windows")]
+////[assembly: XmlnsDefinition("http://ztg.wpf.dashboard/ui", "ZTG.WPF.Dashboard.Shared.UserInterface.Items")]

@@ -1,14 +1,59 @@
 ﻿<UserControl x:Class="ZTG.WPF.Dashboard.Shared.UserInterface.Windows.MDWindowHeader"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             Background="DarkRed"
-             Height="48"
+             xmlns:converter="clr-namespace:ZTG.WPF.Dashboard.Shared.Converter;assembly=ZTG.WPF.Dashboard.Shared"
+             xmlns:items="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Items"
+             xmlns:windows="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Windows"
+             Height="{Binding ParentWindow.TitleBarHeight,
+                              RelativeSource={RelativeSource Self}}"
              HorizontalAlignment="Stretch"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+             Background="{StaticResource MainHapticBrush}">
+  <Grid DataContext="{Binding ParentWindow, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+
+    <Viewbox Grid.Column="0"
+             Width="32"
+             Height="32"
+             Margin="4 2 4 2"
+             VerticalAlignment="Center"
+             Visibility="{Binding ChromeIconPathData,
+                                  Converter={converter:NullToVisibilityConverter}}">
+      <Path Width="24"
+            Height="24"
+            Margin="4"
+            Data="{Binding ChromeIconPathData}"
+            Fill="{Binding ChromeForeground}"
+            Stretch="Uniform" />
+    </Viewbox>
+
+    <items:MDLabel Grid.Column="1"
+                   Margin="8 4 4 4"
+                   VerticalAlignment="Center"
+                   Foreground="{Binding ChromeForeground}"
+                   LabelType="DialogTitle"
+                   Text="{Binding Title}" />
+
+    <windows:MDChromeButton Grid.Column="2"
+                            VerticalAlignment="Top"
+                            Click="MinimizeButtonClickHandler"
+                            ToolTip="Minimize"
+                            Type="Minimize" />
+    <windows:MDChromeButton x:Name="_maxRestoreButton"
+                            Grid.Column="3"
+                            VerticalAlignment="Top"
+                            Click="MaximizeOrRestoreButtonClickHandler"
+                            ToolTip="Maximize"
+                            Type="MaximizeOrRestore" />
+    <windows:MDChromeButton Grid.Column="4"
+                            VerticalAlignment="Top"
+                            Click="CloseButtonClickHandler"
+                            ToolTip="Close"
+                            Type="Close" />
+  </Grid>
 </UserControl>

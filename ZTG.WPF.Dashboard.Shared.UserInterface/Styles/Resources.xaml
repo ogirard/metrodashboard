@@ -4,11 +4,11 @@
 
   <ResourceDictionary.MergedDictionaries>
     <!--  MahApps.Metro resources  -->
-    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Colours.xaml" />
+    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Fonts.xaml" />
+    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Controls.xaml" />
+    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
 
     <!--  Default resources  -->
     <ResourceDictionary Source="Defaults/Basics.xaml" />
@@ -21,8 +21,10 @@
 
     <!--  Controsl resources  -->
     <ResourceDictionary Source="Controls/Windows.xaml" />
+    <ResourceDictionary Source="Controls/Label.xaml" />
   </ResourceDictionary.MergedDictionaries>
 
+  
   <!--
     The following Style is needed to fix an issue with merging dictionaries inside an empty dictionary in .NET 4.0
     See also http://www.wpftutorial.net/MergedDictionaryPerformance.html

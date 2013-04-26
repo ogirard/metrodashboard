@@ -57,13 +57,27 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\Enums\LabelType.cs" />
+    <Compile Include="Items\MDLabel.xaml.cs">
+      <DependentUpon>MDLabel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Styles\Resources.xaml.cs">
       <DependentUpon>Resources.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Enums\ChromeButtonType.cs" />
+    <Compile Include="Windows\MDChromeButton.cs" />
     <Compile Include="Windows\MDWindow.cs" />
     <Compile Include="Windows\MDWindowHeader.xaml.cs">
       <DependentUpon>MDWindowHeader.xaml</DependentUpon>
     </Compile>
+    <Page Include="Items\MDLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls\Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Controls\Windows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
