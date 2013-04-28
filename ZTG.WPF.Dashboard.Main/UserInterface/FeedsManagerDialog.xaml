@@ -1,0 +1,11 @@
+﻿<windows:MDWindow x:Class="ZTG.WPF.Dashboard.Main.UserInterface.FeedsManagerDialog"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:windows="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Windows;assembly=ZTG.WPF.Dashboard.Shared.UserInterface"
+                  Title="Feeds Manager"
+                  Width="600"
+                  Height="450"
+                  ShowInTaskbar="False"
+                  WindowStartupLocation="CenterOwner">
+  <Grid />
+</windows:MDWindow>

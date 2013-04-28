@@ -8,7 +8,10 @@ using System;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using ZTG.WPF.Dashboard.Main;
+using Moq;
+
+using ZTG.WPF.Dashboard.Main.BusinessService;
+using ZTG.WPF.Dashboard.Main.Model;
 
 namespace ZTG.WPF.Dashboard.Tests
 {
@@ -22,12 +25,15 @@ namespace ZTG.WPF.Dashboard.Tests
     public void LoadFeedReturnsFeed()
     {
       // Arrange
-      var target = new NewsService();
-      var feedUri = new Uri("http://heise.de.feedsportal.com/c/35207/f/653902/index.rss");
+      var mockedFeedService = new Mock<FeedService>();
+      var feeds = new[] { new Feed(Guid.NewGuid()) { Path = new Uri("http://heise.de.feedsportal.com/c/35207/f/653902/index.rss") } };
+      mockedFeedService.Setup(fs => fs.Feeds).Returns(feeds);
+
+      var target = new NewsService(mockedFeedService.Object);
 
       // Act
-      var feed = target.LoadFeed(feedUri);
-      
+      var feed = target.GetAllFeeds();
+
       // Assert
       Assert.IsNotNull(feed);
     }

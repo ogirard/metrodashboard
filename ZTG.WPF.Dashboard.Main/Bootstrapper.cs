@@ -20,13 +20,7 @@ namespace ZTG.WPF.Dashboard.Main
 
       var mainWindow = new MainWindow();
       _excpetionHandler = new ExceptionHandler(mainWindow);
-
-      //// var dataAccess = new CustomerRepository();
-      //// var service = new CustomerService(dataAccess);
-      //// var uiService = new CustomerUIService(service, _navigationInfo);
-      //// var mainViewModel = new CustomersViewModel(uiService);
       var mainWindowViewVodel = new MainWindowViewModel();
-      //// mainWindowViewVodel.CustomersViewModel = mainViewModel;
       mainWindow.ViewModel = mainWindowViewVodel;
       return mainWindow;
     }

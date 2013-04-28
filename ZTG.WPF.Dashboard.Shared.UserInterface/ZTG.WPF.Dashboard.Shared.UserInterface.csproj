@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Items\Enums\LabelType.cs" />
+    <Compile Include="Items\MDButton.xaml.cs">
+      <DependentUpon>MDButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Items\MDLabel.xaml.cs">
       <DependentUpon>MDLabel.xaml</DependentUpon>
     </Compile>
@@ -70,7 +73,15 @@
     <Compile Include="Windows\MDWindowHeader.xaml.cs">
       <DependentUpon>MDWindowHeader.xaml</DependentUpon>
     </Compile>
+    <Page Include="Items\MDButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Items\MDLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

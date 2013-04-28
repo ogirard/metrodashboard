@@ -12,16 +12,28 @@ using Argotic.Syndication;
 
 using ZTG.WPF.Dashboard.Shared.Utilities;
 
-namespace ZTG.WPF.Dashboard.Main
+namespace ZTG.WPF.Dashboard.Main.BusinessService
 {
   public class NewsService
   {
+    #region    Test
+
     private readonly IList<Uri> _registeredFeeds = new List<Uri>
                                                      {
                                                        new Uri("http://heise.de.feedsportal.com/c/35207/f/653902/index.rss"),
                                                        new Uri("http://de.engadget.com/rss.xml"),
                                                        new Uri("http://www.microsoft.com/germany/msdn/rss/aktuell.xml")
                                                      };
+
+    #endregion Test
+
+    private readonly FeedService _feedService;
+
+    public NewsService(FeedService feedService)
+    {
+      feedService.ArgumentNotNull("feedService");
+      _feedService = feedService;
+    }
 
     public RssFeed LoadFeed(Uri feedUri)
     {
@@ -32,7 +44,9 @@ namespace ZTG.WPF.Dashboard.Main
 
     public IEnumerable<RssFeed> GetAllFeeds()
     {
-      return _registeredFeeds.Select(LoadFeed);
+      return _feedService.Feeds.Select(f => LoadFeed(f.Path));
+
+      // return _registeredFeeds.Select(LoadFeed);
     }
   }
 }

@@ -6,9 +6,12 @@
   <FontFamily x:Key="DefaultMonospaceFont">Consolas</FontFamily>
 
   <s:Double x:Key="DefaultFontSize">12</s:Double>
-  <s:Double x:Key="Header1FontSize">22</s:Double>
-  <s:Double x:Key="Header2FontSize">18</s:Double>
-  <s:Double x:Key="Header3FontSize">14</s:Double>
+  <s:Double x:Key="Header1FontSize">26</s:Double>
+  <s:Double x:Key="Header2FontSize">20</s:Double>
+  <s:Double x:Key="Header3FontSize">16</s:Double>
+  
+  <s:Double x:Key="ButtonMinHeight">24</s:Double>
+  <s:Double x:Key="ButtonMinWidth">120</s:Double>
 
   <Thickness x:Key="DefaultFieldMargin">4 4 4 4</Thickness>
 </ResourceDictionary>

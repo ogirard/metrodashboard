@@ -15,6 +15,7 @@
     <!--  Controsl resources  -->
     <ResourceDictionary Source="Controls/Windows.xaml" />
     <ResourceDictionary Source="Controls/Label.xaml" />
+    <ResourceDictionary Source="Controls/Buttons.xaml" />
   </ResourceDictionary.MergedDictionaries>
 
   

@@ -94,8 +94,6 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.Windows
     {
       var behaviors = Interaction.GetBehaviors(this);
       behaviors.Add(new BorderlessWindowBehavior());
-
-      TextElement.FontSizeProperty.AddOwner(typeof(MDWindow));
       Style = Application.Current.FindResource("MDWindowDefaultStyle") as Style;
 
       InputBindings.Add(new InputBinding(ApplicationCommands.Help, new KeyGesture(Key.F1)));

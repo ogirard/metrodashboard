@@ -25,7 +25,7 @@
         <Setter Property="Margin" Value="4 8 4 4" />
       </Trigger>
       <Trigger Property="LabelType" Value="Hint">
-        <Setter Property="Margin" Value="{StaticResource HintBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource HintBrush}" />
       </Trigger>
       <Trigger Property="LabelType" Value="Warning">
         <Setter Property="Margin" Value="{StaticResource WarningBrush}" />

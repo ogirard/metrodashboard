@@ -83,6 +83,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessService\FeedService.cs" />
+    <Compile Include="UserInterface\FeedsManagerDialog.xaml.cs">
+      <DependentUpon>FeedsManagerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\FeedsManagerUIService.cs" />
+    <Compile Include="UserInterface\FeedsManagerViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,15 +98,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="DataAccess\FeedDataAccess.cs" />
+    <Compile Include="DataAccess\IFeedDataAccess.cs" />
     <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="FeedItemViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserInterface\FeedsManagerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="NewsService.cs" />
+    <Compile Include="Model\Feed.cs" />
+    <Compile Include="BusinessService\NewsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -152,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\splash.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\feeds.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
