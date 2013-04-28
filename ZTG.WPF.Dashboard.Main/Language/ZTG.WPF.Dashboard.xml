@@ -1,10 +1,11 @@
-﻿<LocalizeItems>
-  
-  <!-- Shared UserInterface -->
-  <LocalizeItem id="ZTG.WPF.Dashboard.Shared.UserInterface.MessageBox.DefaultTitle">Info</LocalizeItem>
-  
-  <!--  Error Handling  -->
-  <LocalizeItem id="ZTG.WPF.Dashboard.Main.ExceptionHandler.Title">Error</LocalizeItem>
-  <LocalizeItem id="ZTG.WPF.Dashboard.Main.ExceptionHandler.Error">Error</LocalizeItem>
-  <LocalizeItem id="ZTG.WPF.Dashboard.Main.ExceptionHandler.Description">The application will shut down.</LocalizeItem>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<LocalizeItems>
+  <LocalizeItem id="ZTG.WPF.Dashboard.ApplicationName">Metro Dashboard</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.MessageBox.Ok">OK</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.MessageBox.Cancel">Cancel</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.MessageBox.Close">Close</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.MessageBox.Yes">Yes</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.MessageBox.No">No</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.MessageBox.Details">Details</LocalizeItem>
+  <LocalizeItem id="ZTG.WPF.Dashboard.MessageBox.Caption">Metro Dashboard</LocalizeItem>
 </LocalizeItems>

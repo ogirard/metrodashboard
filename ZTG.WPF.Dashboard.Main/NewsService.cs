@@ -23,10 +23,6 @@ namespace ZTG.WPF.Dashboard.Main
                                                        new Uri("http://www.microsoft.com/germany/msdn/rss/aktuell.xml")
                                                      };
 
-    public NewsService()
-    {
-    }
-
     public RssFeed LoadFeed(Uri feedUri)
     {
       feedUri.ArgumentNotNull("feedUri");

@@ -3,13 +3,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <ResourceDictionary.MergedDictionaries>
-    <!--  MahApps.Metro resources  -->
-    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Colours.xaml" />
-    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Fonts.xaml" />
-    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Controls.xaml" />
-    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
-    <ResourceDictionary Source="/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
-
     <!--  Default resources  -->
     <ResourceDictionary Source="Defaults/Basics.xaml" />
     <ResourceDictionary Source="Defaults/Colors.xaml" />

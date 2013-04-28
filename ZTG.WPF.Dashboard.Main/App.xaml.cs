@@ -20,12 +20,19 @@ namespace ZTG.WPF.Dashboard.Main
     {
       _isInitializing = true;
       base.OnStartup(e);
+      ShowSplash();
 
       _bootstrapper = new Bootstrapper();
 
       MainWindow = _bootstrapper.Run();
       MainWindow.Show();
       _isInitializing = false;
+    }
+
+    private static void ShowSplash()
+    {
+      var splash = new SplashScreen("Resources\\splash.png");
+      splash.Show(true);
     }
 
     /// <summary>
