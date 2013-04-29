@@ -10,5 +10,11 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
 {
   public class FeedsManagerViewModel : NotificationObject
   {
+    private readonly FeedsManagerUIService _uiService;
+
+    public FeedsManagerViewModel()
+    {
+      _uiService = new FeedsManagerUIService();
+    }
   }
 }

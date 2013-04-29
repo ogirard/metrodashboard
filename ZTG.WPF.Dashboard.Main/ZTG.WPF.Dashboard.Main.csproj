@@ -84,11 +84,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BusinessService\FeedService.cs" />
+    <Compile Include="UserInterface\FeedDialog.xaml.cs">
+      <DependentUpon>FeedDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserInterface\FeedsManagerDialog.xaml.cs">
       <DependentUpon>FeedsManagerDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\FeedsManagerUIService.cs" />
     <Compile Include="UserInterface\FeedsManagerViewModel.cs" />
+    <Compile Include="UserInterface\FeedViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserInterface\FeedDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserInterface\FeedsManagerDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

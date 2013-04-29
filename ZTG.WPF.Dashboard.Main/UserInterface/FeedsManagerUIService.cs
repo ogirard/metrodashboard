@@ -5,7 +5,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 using ZTG.WPF.Dashboard.Main.BusinessService;
@@ -18,7 +18,11 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
   {
     private readonly FeedService _feedService;
 
-    public IEnumerable<Feed> Feeds { get { return _feedService.Feeds; } }
+    private readonly DelegateCommand _addFeedCommand;
+    private readonly DelegateCommand _editFeedCommand;
+    private readonly DelegateCommand _deleteFeedCommand;
+
+    public ObservableCollection<Feed> Feeds { get; private set; }
 
     private Feed _selectedFeed;
 
@@ -41,15 +45,18 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
           {
             SelectedFeedChanged(this, EventArgs.Empty);
           }
+
+          _editFeedCommand.RaiseCanExecuteChanged();
+          _deleteFeedCommand.RaiseCanExecuteChanged();
         }
       }
     }
 
-    public ICommand AddFeedCommand { get; private set; }
+    public ICommand AddFeedCommand { get { return _addFeedCommand; } }
 
-    public ICommand EditFeedCommand { get; private set; }
+    public ICommand EditFeedCommand { get { return _editFeedCommand; } }
 
-    public ICommand DeleteFeedCommand { get; private set; }
+    public ICommand DeleteFeedCommand { get { return _deleteFeedCommand; } }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="FeedsManagerUIService"/> class.
@@ -57,16 +64,36 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
     public FeedsManagerUIService()
     {
       _feedService = new FeedService();
+      Feeds = new ObservableCollection<Feed>(_feedService.Feeds);
+
+      _addFeedCommand = new DelegateCommand(AddFeed, CanAddFeed);
+      _editFeedCommand = new DelegateCommand(EditFeed, CanEditFeed);
+      _deleteFeedCommand = new DelegateCommand(DeleteFeed, CanDeleteFeed);
     }
 
     public event EventHandler SelectedFeedChanged;
+
+    private bool CanAddFeed()
+    {
+      return true;
+    }
 
     private void AddFeed()
     {
     }
 
+    private bool CanEditFeed()
+    {
+      return SelectedFeed != null;
+    }
+
     private void EditFeed()
     {
+    }
+
+    private bool CanDeleteFeed()
+    {
+      return SelectedFeed != null;
     }
 
     private void DeleteFeed()
