@@ -15,7 +15,7 @@
                   TitleBarHeight="28"
                   WindowStartupLocation="CenterOwner"
                   mc:Ignorable="d">
-  <Grid>
+  <Grid Margin="8">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
@@ -35,12 +35,14 @@
             <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="OverridesDefaultStyle" Value="True" />
             <Style.Triggers>
               <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
               </Trigger>
               <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+              </Trigger>
+              <Trigger Property="IsKeyboardFocused" Value="True">
                 <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
               </Trigger>
             </Style.Triggers>
