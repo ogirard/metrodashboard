@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FeedsManagerViewModel.cs" company="Zühlke Engineering AG">
+// <copyright file="OptionsViewModel.cs" company="Zühlke Engineering AG">
 //   (c) by Zühlke Engineering AG 2013
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
@@ -8,17 +8,31 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 using ZTG.WPF.Dashboard.Main.Model;
+using ZTG.WPF.Dashboard.Shared.Utilities;
 using ZTG.WPF.Dashboard.Shared.WPF;
 
 namespace ZTG.WPF.Dashboard.Main.UserInterface
 {
-  public class FeedsManagerViewModel : NotificationObject
+  public class OptionsViewModel : NotificationObject
   {
-    private readonly FeedsManagerUIService _uiService;
+    private readonly OptionsUIService _uiService;
 
     public ObservableCollection<Feed> Feeds
     {
       get { return _uiService.Feeds; }
+    }
+
+    public Feed SelectedFeed
+    {
+      get
+      {
+        return _uiService.SelectedFeed;
+      }
+
+      set
+      {
+        _uiService.SelectedFeed = value;
+      }
     }
 
     public ICommand AddFeedCommand
@@ -36,9 +50,10 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
       get { return _uiService.DeleteFeedCommand; }
     }
 
-    public FeedsManagerViewModel()
+    public OptionsViewModel(OptionsUIService uiService)
     {
-      _uiService = new FeedsManagerUIService();
+      uiService.ArgumentNotNull("uiService");
+      _uiService = uiService;
     }
   }
 }

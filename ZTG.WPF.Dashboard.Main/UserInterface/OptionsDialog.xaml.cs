@@ -1,32 +1,39 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FeedsManagerDialog.xaml.cs" company="Zühlke Engineering AG">
+// <copyright file="OptionsDialog.xaml.cs" company="Zühlke Engineering AG">
 //   (c) by Zühlke Engineering AG 2013
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Windows;
+
 namespace ZTG.WPF.Dashboard.Main.UserInterface
 {
   /// <summary>
-  /// Interaction logic for FeedsManagerDialog.xaml
+  /// Interaction logic for OptionsDialog.xaml
   /// </summary>
-  public partial class FeedsManagerDialog
+  public partial class OptionsDialog
   {
-    public FeedsManagerDialog()
+    public OptionsDialog()
     {
       InitializeComponent();
     }
 
-    public FeedsManagerViewModel ViewModel
+    public OptionsViewModel ViewModel
     {
       get
       {
-        return DataContext as FeedsManagerViewModel;
+        return DataContext as OptionsViewModel;
       }
 
       set
       {
         DataContext = value;
       }
+    }
+
+    private void CloseClickHandler(object sender, RoutedEventArgs e)
+    {
+      Close();
     }
   }
 }

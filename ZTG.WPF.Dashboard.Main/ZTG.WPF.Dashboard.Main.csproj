@@ -90,11 +90,11 @@
     <Compile Include="UserInterface\FeedDialog.xaml.cs">
       <DependentUpon>FeedDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserInterface\FeedsManagerDialog.xaml.cs">
-      <DependentUpon>FeedsManagerDialog.xaml</DependentUpon>
+    <Compile Include="UserInterface\OptionsDialog.xaml.cs">
+      <DependentUpon>OptionsDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserInterface\FeedsManagerUIService.cs" />
-    <Compile Include="UserInterface\FeedsManagerViewModel.cs" />
+    <Compile Include="UserInterface\OptionsUIService.cs" />
+    <Compile Include="UserInterface\OptionsViewModel.cs" />
     <Compile Include="UserInterface\FeedViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -117,7 +117,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserInterface\FeedsManagerDialog.xaml">
+    <Page Include="UserInterface\OptionsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -32,6 +32,25 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
       }
     }
 
+    private string _headerText;
+
+    /// <summary>
+    /// Gets or sets the HeaderText.
+    /// </summary>
+    /// <value>The HeaderText value.</value>
+    public string HeaderText
+    {
+      get
+      {
+        return _headerText;
+      }
+
+      set
+      {
+        ChangeAndNotify(ref _headerText, value, "HeaderText");
+      }
+    }
+
     public ICommand SaveCommand { get; set; }
 
     public ICommand CancelCommand { get; set; }

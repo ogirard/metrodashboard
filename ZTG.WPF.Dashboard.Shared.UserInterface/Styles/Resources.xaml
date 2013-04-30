@@ -12,7 +12,7 @@
     <ResourceDictionary Source="Images/Images.xaml" />
     <ResourceDictionary Source="Images/Icons.xaml" />
 
-    <!--  Controsl resources  -->
+    <!--  Control resources  -->
     <ResourceDictionary Source="Controls/Windows.xaml" />
     <ResourceDictionary Source="Controls/Label.xaml" />
     <ResourceDictionary Source="Controls/Buttons.xaml" />

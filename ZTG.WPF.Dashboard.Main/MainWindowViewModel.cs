@@ -18,6 +18,7 @@ namespace ZTG.WPF.Dashboard.Main
   public class MainWindowViewModel : NotificationObject
   {
     private readonly NewsService _newService;
+    private readonly OptionsUIService _optionsUIService;
 
     private ObservableCollection<FeedItemViewModel> _feedItems;
 
@@ -37,9 +38,12 @@ namespace ZTG.WPF.Dashboard.Main
       }
     }
 
-    public ICommand LoadFeedItemsCommand { get; private set; }
+    public ICommand ReloadCommand { get; private set; }
 
-    public ICommand ManageFeedsCommand { get; private set; }
+    public ICommand OptionsCommand
+    {
+      get { return _optionsUIService.OpenOptionsDialogCommand; }
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
@@ -47,23 +51,13 @@ namespace ZTG.WPF.Dashboard.Main
     public MainWindowViewModel()
     {
       _newService = new NewsService(new FeedService());
+      _optionsUIService = new OptionsUIService();
+
       FeedItems = new ObservableCollection<FeedItemViewModel>();
-      LoadFeedItemsCommand = new DelegateCommand(LoadFeedItems);
-      ManageFeedsCommand = new DelegateCommand(ManageFeeds);
+      ReloadCommand = new DelegateCommand(Reload);
     }
 
-    private static void ManageFeeds()
-    {
-      var feedsManagerDialog = new FeedsManagerDialog
-                                 {
-                                   ViewModel = new FeedsManagerViewModel(),
-                                   Owner = Application.Current.MainWindow
-                                 };
-
-      feedsManagerDialog.ShowDialog();
-    }
-
-    private void LoadFeedItems()
+    private void Reload()
     {
       FeedItems.Clear();
       foreach (var feedItem in _newService.GetAllFeeds().SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item))).OrderByDescending(item => item.PublicationDate))

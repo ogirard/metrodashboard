@@ -6,60 +6,97 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:userInterface="clr-namespace:ZTG.WPF.Dashboard.Main.UserInterface"
                   xmlns:windows="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Windows;assembly=ZTG.WPF.Dashboard.Shared.UserInterface"
-                  Title="FeedDialog"
-                  Width="300"
-                  Height="300"
+                  Title="Metro Dashboard - Manage Feeds"
+                  Width="450"
+                  Height="325"
+                  MinWidth="300"
+                  MinHeight="325"
                   d:DataContext="{d:DesignInstance userInterface:FeedViewModel}"
+                  TitleBarHeight="28"
+                  WindowStartupLocation="CenterOwner"
                   mc:Ignorable="d">
   <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
-
     <items:MDLabel Grid.Row="0"
-                   Grid.Column="0"
-                   LabelType="Field"
-                   Text="Name" />
-    <TextBox Grid.Row="0"
-             Grid.Column="1"
-             Text="{Binding Feed.Name,
-                            Mode=TwoWay,
-                            UpdateSourceTrigger=LostFocus}" />
-    <items:MDLabel Grid.Row="1"
-                   Grid.Column="0"
-                   LabelType="Field"
-                   Text="Path" />
-    <TextBox Grid.Row="1"
-             Grid.Column="1"
-             Text="{Binding Feed.Path,
-                            Mode=TwoWay,
-                            UpdateSourceTrigger=LostFocus}" />
-    <items:MDLabel Grid.Row="2"
-                   Grid.Column="0"
-                   LabelType="Field"
-                   Text="Description" />
-    <TextBox Grid.Row="2"
-             Grid.Column="1"
-             Height="80"
-             AcceptsReturn="True"
-             Text="{Binding Feed.Description,
-                            Mode=TwoWay,
-                            UpdateSourceTrigger=LostFocus}"
-             TextWrapping="Wrap" />
-    <StackPanel Grid.Row="4"
-                Grid.ColumnSpan="2"
+                   LabelType="Header1"
+                   Text="{Binding HeaderText}" />
+    <Border Grid.Row="1"
+            Margin="4 16 4 4"
+            Background="{StaticResource MainBrush}"
+            Padding="8">
+      <Grid>
+        <Grid.Resources>
+          <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="{StaticResource DefaultFieldMargin}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Style.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+              </Trigger>
+              <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+              </Trigger>
+            </Style.Triggers>
+          </Style>
+        </Grid.Resources>
+
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <items:MDLabel Grid.Row="0"
+                       Grid.Column="0"
+                       LabelType="Field"
+                       Text="Name" />
+        <TextBox Grid.Row="0"
+                 Grid.Column="1"
+                 Text="{Binding Feed.Name,
+                                Mode=TwoWay,
+                                UpdateSourceTrigger=LostFocus}" />
+        <items:MDLabel Grid.Row="1"
+                       Grid.Column="0"
+                       LabelType="Field"
+                       Text="Path" />
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 Text="{Binding Feed.Path,
+                                Mode=TwoWay,
+                                UpdateSourceTrigger=LostFocus}" />
+        <items:MDLabel Grid.Row="2"
+                       Grid.Column="0"
+                       LabelType="Field"
+                       Text="Description" />
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 Height="80"
+                 AcceptsReturn="True"
+                 Text="{Binding Feed.Description,
+                                Mode=TwoWay,
+                                UpdateSourceTrigger=LostFocus}"
+                 TextWrapping="Wrap" />
+      </Grid>
+    </Border>
+
+    <StackPanel Grid.Row="2"
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
       <items:MDButton Command="{Binding SaveCommand}" Content="Save" />
       <items:MDButton Command="{Binding CancelCommand}" Content="Cancel" />
     </StackPanel>
   </Grid>
+
 </windows:MDWindow>

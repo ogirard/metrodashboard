@@ -56,7 +56,6 @@ namespace ZTG.WPF.Dashboard.Main.Model
     /// <summary>
     /// Gets or sets the Path.
     /// </summary>
-    /// <value>The Path value.</value>
     public Uri Path
     {
       get
@@ -66,7 +65,21 @@ namespace ZTG.WPF.Dashboard.Main.Model
 
       set
       {
-        ChangeAndNotify(ref _path, value, "Path");
+        if (ChangeAndNotify(ref _path, value, "Path"))
+        {
+          Notify("DisplayPath");
+        }
+      }
+    }
+
+    /// <summary>
+    /// Gets the display path.
+    /// </summary>
+    public string DisplayPath
+    {
+      get
+      {
+        return Path != null ? Path.Host : "n/a";
       }
     }
 

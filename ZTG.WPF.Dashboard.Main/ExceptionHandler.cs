@@ -9,11 +9,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
 using ZTG.WPF.Dashboard.Shared.Extensions;
+using ZTG.WPF.Dashboard.Shared.UserInterface.Windows;
+using ZTG.WPF.Dashboard.Shared.UserInterface.Windows.Enums;
 using ZTG.WPF.Dashboard.Shared.Utilities;
 
 namespace ZTG.WPF.Dashboard.Main
@@ -75,7 +78,7 @@ namespace ZTG.WPF.Dashboard.Main
       // 1.) Get the error message
       var message = GetExceptionMessage(exception);
 
-      // 2.) Show error message
+      // 2.) ShowDialog error message
       var details = GetInnerExceptionMessage(exception);
       if (details == null)
       {
@@ -88,6 +91,14 @@ namespace ZTG.WPF.Dashboard.Main
     public static void ShowErrorMessage(string message, string details, Window mainWindow)
     {
       message.ArgumentNotNullOrEmpty("message");
+
+      if (Application.Current != null && Application.Current.Dispatcher != null && Application.Current.Dispatcher.CheckAccess())
+      {
+        MDMessageBox.ShowDialog(MessageBoxType.Error, "Fatal Error", message, details);
+      }
+
+      // TODO: log!
+      Environment.Exit(99);
     }
 
     private static string GetExceptionMessage(Exception exception)

@@ -85,7 +85,11 @@ namespace ZTG.WPF.Dashboard.Main.DataAccess
         feed.Description = feedElement.GetElementValue("description");
         feed.Path = new Uri(feedElement.GetElementValue("path"));
         feed.Tags = feedElement.GetElementValue("tags");
-        _feeds.Add(feed.Id, feed);
+
+        if (!_feeds.ContainsKey(id))
+        {
+          _feeds.Add(feed.Id, feed);
+        }
       }
     }
 
@@ -98,11 +102,10 @@ namespace ZTG.WPF.Dashboard.Main.DataAccess
       {
         var feedElement = new XElement("feed");
         feedElement.SetElementValue("id", DefaultStringConverter.FormatGuid(feed.Id));
-        feedElement.SetElementValue("name", feed.Name);
-        feedElement.SetElementValue("path", feed.Path.AbsoluteUri);
-        feedElement.SetElementValue("description", feed.Description);
-        feedElement.SetElementValue("tags", feed.Tags);
-
+        feedElement.Add(new XElement("name", feed.Name));
+        feedElement.Add(new XElement("path", feed.Path.AbsoluteUri));
+        feedElement.Add(new XElement("description", feed.Description ?? string.Empty));
+        feedElement.Add(new XElement("tags", feed.Tags ?? string.Empty));
         feedsXml.Root.Add(feedElement);
       }
 

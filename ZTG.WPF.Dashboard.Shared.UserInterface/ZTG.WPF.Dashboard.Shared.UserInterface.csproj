@@ -68,6 +68,11 @@
     <Compile Include="Items\MDLabel.xaml.cs">
       <DependentUpon>MDLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Enums\MessageBoxResult.cs" />
+    <Compile Include="Windows\Enums\MessageBoxType.cs" />
+    <Compile Include="Windows\MDMessageBox.xaml.cs">
+      <DependentUpon>MDMessageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Styles\Resources.xaml.cs">
       <DependentUpon>Resources.xaml</DependentUpon>
     </Compile>
@@ -86,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Items\MDLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MDMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
