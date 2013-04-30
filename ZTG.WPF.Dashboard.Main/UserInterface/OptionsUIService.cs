@@ -71,9 +71,9 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
     /// <summary>
     /// Initializes a new instance of the <see cref="OptionsUIService"/> class.
     /// </summary>
-    public OptionsUIService()
+    public OptionsUIService(FeedService feedService)
     {
-      _feedService = new FeedService();
+      _feedService = feedService;
       Feeds = new ObservableCollection<Feed>(_feedService.Feeds);
 
       _openOptionsDialogCommand = new DelegateCommand(OpenOptionsDialog, CanOpenOptionsDialog);

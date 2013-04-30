@@ -1,6 +1,7 @@
 ﻿<windows:MDWindow x:Class="ZTG.WPF.Dashboard.Main.MainWindow"
                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:converter="clr-namespace:ZTG.WPF.Dashboard.Shared.Converter;assembly=ZTG.WPF.Dashboard.Shared"
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                   xmlns:items="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Items;assembly=ZTG.WPF.Dashboard.Shared.UserInterface"
                   xmlns:loc="clr-namespace:ZTG.WPF.Dashboard.Shared.Localization.WPF;assembly=ZTG.WPF.Dashboard.Shared"
@@ -58,7 +59,7 @@
             Background="{StaticResource MainBrush}"
             Padding="8">
       <ScrollViewer>
-        <ItemsControl ItemsSource="{Binding FeedItems}">
+        <ItemsControl Grid.IsSharedSizeScope="True" ItemsSource="{Binding FeedItems}">
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="{x:Type main:FeedItemViewModel}">
               <Grid>
@@ -68,9 +69,24 @@
                   <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto" SharedSizeGroup="ImageColumn" />
                   <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <Border Grid.Row="0"
+                        Grid.RowSpan="3"
+                        Grid.Column="0"
+                        Width="200"
+                        Height="100"
+                        BorderBrush="{StaticResource LightAccentBrush}"
+                        BorderThickness="1">
+                  <Image HorizontalAlignment="Center"
+                         VerticalAlignment="Stretch"
+                         Source="{Binding Image}"
+                         Stretch="Uniform"
+                         Visibility="{Binding Image,
+                                              Converter={converter:NullToVisibilityConverter}}" />
+                </Border>
+
                 <items:MDLabel Grid.Row="0"
                                Grid.Column="1"
                                LabelType="Header3"
@@ -82,7 +98,10 @@
                                Text="{Binding Description}"
                                TextTrimming="WordEllipsis"
                                TextWrapping="Wrap" />
-                <items:MDLabel LabelType="Hint" Text="{Binding Title}" />
+                <items:MDLabel Grid.Row="2"
+                               Grid.Column="1"
+                               LabelType="Hint"
+                               Text="{Binding Information}" />
               </Grid>
             </DataTemplate>
           </ItemsControl.ItemTemplate>

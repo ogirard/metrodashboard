@@ -1,3 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<feeds>  
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feeds>
+  <feed>
+    <id>34d314d8-5554-4738-ba80-0c5e8e749288</id>
+    <name>20 Minuten - Digital</name>
+    <path>http://www.20min.ch/rss/rss.tmpl?type=channel&amp;get=10</path>
+    <description>20 Minuten RSS-Feed: Digital</description>
+    <tags></tags>
+  </feed>
 </feeds>

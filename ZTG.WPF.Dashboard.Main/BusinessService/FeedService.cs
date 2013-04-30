@@ -19,11 +19,12 @@ namespace ZTG.WPF.Dashboard.Main.BusinessService
     private readonly IFeedDataAccess _dataAccess;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="FeedService"/> class.
+    /// Initializes a new instance of the <see cref="FeedService" /> class.
     /// </summary>
-    public FeedService()
+    /// <param name="dataAccess">The data access.</param>
+    public FeedService(IFeedDataAccess dataAccess)
     {
-      _dataAccess = new FeedDataAccess();
+      _dataAccess = dataAccess;
     }
 
     public IEnumerable<Feed> Feeds
@@ -82,7 +83,7 @@ namespace ZTG.WPF.Dashboard.Main.BusinessService
       {
         errors.AddValidationError(ValidationErrorScope.Property, "Feed URL must be valid", "Path", ValidationLevel.Error);
       }
-      else if (Feeds.Any(f => f != feed && f.Path.AbsolutePath == feed.Path.AbsolutePath))
+      else if (Feeds.Any(f => f != feed && f.Path.ToString() == feed.Path.ToString()))
       {
         errors.AddValidationError(ValidationErrorScope.Property, "Path must be unique", "Path", ValidationLevel.Error);
       }

@@ -6,10 +6,10 @@
 
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 
 using ZTG.WPF.Dashboard.Main.BusinessService;
+using ZTG.WPF.Dashboard.Main.DataAccess;
 using ZTG.WPF.Dashboard.Main.UserInterface;
 using ZTG.WPF.Dashboard.Shared.WPF;
 
@@ -17,8 +17,10 @@ namespace ZTG.WPF.Dashboard.Main
 {
   public class MainWindowViewModel : NotificationObject
   {
-    private readonly NewsService _newService;
+    private readonly NewsService _newsService;
     private readonly OptionsUIService _optionsUIService;
+    private readonly IFeedDataAccess _dataAccess;
+    private readonly FeedService _feedService;
 
     private ObservableCollection<FeedItemViewModel> _feedItems;
 
@@ -50,8 +52,10 @@ namespace ZTG.WPF.Dashboard.Main
     /// </summary>
     public MainWindowViewModel()
     {
-      _newService = new NewsService(new FeedService());
-      _optionsUIService = new OptionsUIService();
+      _dataAccess = new FeedDataAccess();
+      _feedService = new FeedService(_dataAccess);
+      _newsService = new NewsService(_feedService);
+      _optionsUIService = new OptionsUIService(_feedService);
 
       FeedItems = new ObservableCollection<FeedItemViewModel>();
       ReloadCommand = new DelegateCommand(Reload);
@@ -60,7 +64,7 @@ namespace ZTG.WPF.Dashboard.Main
     private void Reload()
     {
       FeedItems.Clear();
-      foreach (var feedItem in _newService.GetAllFeeds().SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item))).OrderByDescending(item => item.PublicationDate))
+      foreach (var feedItem in _newsService.GetAllFeeds().SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item))).OrderByDescending(item => item.PublicationDate))
       {
         FeedItems.Add(feedItem);
       }
