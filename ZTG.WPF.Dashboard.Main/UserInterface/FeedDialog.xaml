@@ -55,6 +55,7 @@
                             UpdateSourceTrigger=LostFocus}"
              TextWrapping="Wrap" />
     <StackPanel Grid.Row="4"
+                Grid.ColumnSpan="2"
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
       <items:MDButton Command="{Binding SaveCommand}" Content="Save" />

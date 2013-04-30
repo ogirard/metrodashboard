@@ -6,7 +6,7 @@
     <ResourceDictionary Source="../Defaults/Brushes.xaml" />
   </ResourceDictionary.MergedDictionaries>
 
-  <!--  Default ControlTemplate for MDWindow  -->
+  <!--  Default ControlTemplate for : MDWindow  -->
   <ControlTemplate x:Key="MDWindowControlTemplate" TargetType="{x:Type windows:MDWindow}">
     <Border HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
@@ -22,6 +22,7 @@
     </Border>
   </ControlTemplate>
 
+  <!--  Default Style for : MDWindow, assigned explicitely -->
   <Style x:Key="MDWindowDefaultStyle" TargetType="{x:Type windows:MDWindow}">
     <Setter Property="SnapsToDevicePixels" Value="True" />
     <Setter Property="Background" Value="{StaticResource MainBackgroundBrush}" />
@@ -33,7 +34,8 @@
     <Setter Property="Foreground" Value="{StaticResource BasicBrush}" />
   </Style>
 
-  <Style x:Key="DefaultMDWindowCaptionButtonStyle" TargetType="Button">
+  <!--  Default Style for : MDChromeButton, assigned explicitely -->
+  <Style x:Key="MDChromeButtonDefaultStyle" TargetType="{x:Type windows:MDChromeButton}">
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{x:Null}" />
@@ -50,12 +52,12 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type windows:MDChromeButton}">
-          <Border x:Name="_buttonChrome"
+          <Border x:Name="PART_ButtonChrome"
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
                   Opacity="0.5"
                   SnapsToDevicePixels="True">
-            <TextBlock x:Name="_stateText"
+            <TextBlock x:Name="PART_StateText"
                        Margin="0"
                        FontFamily="Webdings"
                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -64,33 +66,33 @@
           <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="False">
               <Setter Property="Foreground" Value="{DynamicResource DefaultControlDisabledForegroundBrush}" />
-              <Setter TargetName="_buttonChrome" Property="Opacity" Value="0.5" />
+              <Setter TargetName="PART_ButtonChrome" Property="Opacity" Value="0.5" />
             </Trigger>
             <Trigger Property="Type" Value="About">
-              <Setter TargetName="_stateText" Property="Text" Value="i" />
+              <Setter TargetName="PART_StateText" Property="Text" Value="i" />
             </Trigger>
             <Trigger Property="Type" Value="Close">
-              <Setter TargetName="_stateText" Property="Text" Value="r" />
+              <Setter TargetName="PART_StateText" Property="Text" Value="r" />
             </Trigger>
             <Trigger Property="Type" Value="Help">
-              <Setter TargetName="_stateText" Property="Text" Value="s" />
+              <Setter TargetName="PART_StateText" Property="Text" Value="s" />
             </Trigger>
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
                 <Condition Binding="{Binding Type, RelativeSource={RelativeSource Self}}" Value="MaximizeOrRestore" />
                 <Condition Binding="{Binding WindowState, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Value="Normal" />
               </MultiDataTrigger.Conditions>
-              <Setter TargetName="_stateText" Property="Text" Value="1" />
+              <Setter TargetName="PART_StateText" Property="Text" Value="1" />
             </MultiDataTrigger>
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
                 <Condition Binding="{Binding Type, RelativeSource={RelativeSource Self}}" Value="MaximizeOrRestore" />
                 <Condition Binding="{Binding WindowState, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Value="Maximized" />
               </MultiDataTrigger.Conditions>
-              <Setter TargetName="_stateText" Property="Text" Value="2" />
+              <Setter TargetName="PART_StateText" Property="Text" Value="2" />
             </MultiDataTrigger>
             <Trigger Property="Type" Value="Minimize">
-              <Setter TargetName="_stateText" Property="Text" Value="0" />
+              <Setter TargetName="PART_StateText" Property="Text" Value="0" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
               <Setter Property="Opacity" Value="0.5" />
@@ -98,7 +100,7 @@
             <EventTrigger RoutedEvent="Mouse.PreviewMouseDown">
               <BeginStoryboard>
                 <Storyboard>
-                  <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_buttonChrome" Storyboard.TargetProperty="(UIElement.Opacity)">
+                  <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_ButtonChrome" Storyboard.TargetProperty="(UIElement.Opacity)">
                     <EasingDoubleKeyFrame KeyTime="0" Value="1" />
                   </DoubleAnimationUsingKeyFrames>
                 </Storyboard>
@@ -107,7 +109,7 @@
             <EventTrigger RoutedEvent="MouseEnter">
               <BeginStoryboard>
                 <Storyboard>
-                  <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_buttonChrome" Storyboard.TargetProperty="(UIElement.Opacity)">
+                  <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_ButtonChrome" Storyboard.TargetProperty="(UIElement.Opacity)">
                     <EasingDoubleKeyFrame KeyTime="0" Value="0.8" />
                   </DoubleAnimationUsingKeyFrames>
                 </Storyboard>
@@ -116,7 +118,7 @@
             <EventTrigger RoutedEvent="MouseLeave">
               <BeginStoryboard>
                 <Storyboard>
-                  <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_buttonChrome" Storyboard.TargetProperty="(UIElement.Opacity)">
+                  <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_ButtonChrome" Storyboard.TargetProperty="(UIElement.Opacity)">
                     <EasingDoubleKeyFrame KeyTime="0" Value="0.5" />
                   </DoubleAnimationUsingKeyFrames>
                 </Storyboard>

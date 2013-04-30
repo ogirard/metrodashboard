@@ -39,7 +39,7 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.Windows
     public MDChromeButton()
     {
       // apply default style (including control template)
-      Style = Application.Current.FindResource("DefaultMDWindowCaptionButtonStyle") as Style;
+      Style = Application.Current.FindResource("MDChromeButtonDefaultStyle") as Style;
     }
   }
 }

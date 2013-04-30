@@ -18,6 +18,7 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
   {
     private readonly FeedService _feedService;
 
+    private readonly DelegateCommand _openFeedManagerCommand;
     private readonly DelegateCommand _addFeedCommand;
     private readonly DelegateCommand _editFeedCommand;
     private readonly DelegateCommand _deleteFeedCommand;
@@ -52,6 +53,8 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
       }
     }
 
+    public ICommand OpenFeedManagerCommand { get { return _openFeedManagerCommand; } }
+
     public ICommand AddFeedCommand { get { return _addFeedCommand; } }
 
     public ICommand EditFeedCommand { get { return _editFeedCommand; } }
@@ -66,12 +69,17 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
       _feedService = new FeedService();
       Feeds = new ObservableCollection<Feed>(_feedService.Feeds);
 
+      _openFeedManagerCommand = new DelegateCommand(OpenFeedManager);
       _addFeedCommand = new DelegateCommand(AddFeed, CanAddFeed);
       _editFeedCommand = new DelegateCommand(EditFeed, CanEditFeed);
       _deleteFeedCommand = new DelegateCommand(DeleteFeed, CanDeleteFeed);
     }
 
     public event EventHandler SelectedFeedChanged;
+
+    private void OpenFeedManager()
+    {
+    }
 
     private bool CanAddFeed()
     {

@@ -33,12 +33,23 @@
                    Text="Today" />
     <items:MDButton Grid.Row="0"
                     Grid.Column="2"
-                    Command="{Binding LoadFeedItemsCommand}"
-                    Content="Reload" />
+                    Command="{Binding LoadFeedItemsCommand}">
+      <items:MDButton.Content>
+        <StackPanel Orientation="Horizontal">
+          <items:MDIcon Margin="4 0 8 0"
+                        IconBrush="{Binding Foreground,
+                                            RelativeSource={RelativeSource FindAncestor,
+                                                                           AncestorType={x:Type items:MDButton}}}"
+                        IconSize="16 16"
+                        IconType="Reload" />
+          <TextBlock Text="Reload" />
+        </StackPanel>
+      </items:MDButton.Content>
+    </items:MDButton>
     <items:MDButton Grid.Row="0"
                     Grid.Column="3"
                     Command="{Binding ManageFeedsCommand}"
-                    Content="Settings" />
+                    Content="Options" />
 
     <Border Grid.Row="1"
             Grid.ColumnSpan="4"

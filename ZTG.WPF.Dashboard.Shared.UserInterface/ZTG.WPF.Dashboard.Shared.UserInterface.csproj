@@ -57,9 +57,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\Enums\IconType.cs" />
     <Compile Include="Items\Enums\LabelType.cs" />
     <Compile Include="Items\MDButton.xaml.cs">
       <DependentUpon>MDButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Items\MDIcon.xaml.cs">
+      <DependentUpon>MDIcon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\MDLabel.xaml.cs">
       <DependentUpon>MDLabel.xaml</DependentUpon>
@@ -77,11 +81,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Items\MDIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Items\MDLabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Controls\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls\Icons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

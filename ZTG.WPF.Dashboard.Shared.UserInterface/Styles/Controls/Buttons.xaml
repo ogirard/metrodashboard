@@ -7,7 +7,7 @@
     <ResourceDictionary Source="../Defaults/Brushes.xaml" />
   </ResourceDictionary.MergedDictionaries>
 
-  <!--  Control Template for : MDButton  -->
+  <!--  Default Control Template for : MDButton  -->
   <ControlTemplate x:Key="MDButtonDefaultControlTemplate" TargetType="{x:Type items:MDButton}">
     <Border x:Name="PART_ButtonBorder"
             Background="{TemplateBinding Background}"
@@ -29,10 +29,16 @@
         <Setter TargetName="PART_ButtonBorder" Property="Background" Value="{StaticResource DarkAccentBrush}" />
         <Setter Property="Foreground" Value="{StaticResource MainBrush}" />
       </Trigger>
+      <Trigger Property="IsEnabled" Value="False">
+        <Setter TargetName="PART_ButtonBorder" Property="BorderBrush" Value="{StaticResource BasicBrush}" />
+        <Setter TargetName="PART_ButtonBorder" Property="Background" Value="{StaticResource BasicBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource MainBrush}" />
+        <Setter Property="Opacity" Value="0.6" />
+      </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
 
-  <!--  Default Style for : MDButton  -->
+  <!--  Implicit Style for : MDButton  -->
   <Style TargetType="{x:Type items:MDButton}">
     <Setter Property="Margin" Value="{StaticResource DefaultFieldMargin}" />
     <Setter Property="VerticalAlignment" Value="Bottom" />
