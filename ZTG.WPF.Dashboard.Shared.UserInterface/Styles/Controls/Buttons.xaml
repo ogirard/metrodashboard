@@ -48,7 +48,7 @@
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="FontWeight" Value="SemiBold" />
-    <Setter Property="Background" Value="{StaticResource MainBrush}" />
+    <Setter Property="Background" Value="{StaticResource BasicBrush}" />
     <Setter Property="SnapsToDevicePixels" Value="True" />
     <Setter Property="Padding" Value="3 3 3 3" />
     <Setter Property="Template" Value="{StaticResource MDButtonDefaultControlTemplate}" />
