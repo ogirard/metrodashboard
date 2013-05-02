@@ -85,15 +85,12 @@ namespace ZTG.WPF.Dashboard.Main
     private void ReloadAsync()
     {
       IsLoadingFeeds = true;
-
-      var task =
-        new Task<IEnumerable<FeedItemViewModel>>(
-          () =>
-          _newsService.GetAllFeeds()
-                      .SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item)))
-                      .OrderByDescending(item => item.PublicationDate));
-      task.ContinueWith(ReloadFinished);
-      task.Start();
+      var context = TaskScheduler.FromCurrentSynchronizationContext();
+      Task.Factory.StartNew<IEnumerable<FeedItemViewModel>>(
+        () =>
+        _newsService.GetAllFeeds()
+                    .SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item)))
+                    .OrderByDescending(item => item.PublicationDate)).ContinueWith(ReloadFinished, context);
     }
 
     private void ReloadFinished(Task<IEnumerable<FeedItemViewModel>> reloadTask)

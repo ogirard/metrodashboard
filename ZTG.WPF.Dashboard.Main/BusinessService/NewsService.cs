@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 using Argotic.Syndication;
 
@@ -44,6 +45,7 @@ namespace ZTG.WPF.Dashboard.Main.BusinessService
 
     public IEnumerable<RssFeed> GetAllFeeds()
     {
+      Thread.Sleep(2000);
       return _feedService.Feeds.Select(f => LoadFeed(f.Path));
 
       // return _registeredFeeds.Select(LoadFeed);
