@@ -4,8 +4,11 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 using ZTG.WPF.Dashboard.Main.BusinessService;
@@ -47,6 +50,24 @@ namespace ZTG.WPF.Dashboard.Main
       get { return _optionsUIService.OpenOptionsDialogCommand; }
     }
 
+    private bool _isLoadingFeeds;
+
+    /// <summary>
+    /// Gets or sets the IsLoadingFeeds.
+    /// </summary>
+    public bool IsLoadingFeeds
+    {
+      get
+      {
+        return _isLoadingFeeds;
+      }
+
+      set
+      {
+        ChangeAndNotify(ref _isLoadingFeeds, value, "IsLoadingFeeds");
+      }
+    }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
     /// </summary>
@@ -58,13 +79,34 @@ namespace ZTG.WPF.Dashboard.Main
       _optionsUIService = new OptionsUIService(_feedService);
 
       FeedItems = new ObservableCollection<FeedItemViewModel>();
-      ReloadCommand = new DelegateCommand(Reload);
+      ReloadCommand = new DelegateCommand(ReloadAsync);
     }
 
-    private void Reload()
+    private void ReloadAsync()
     {
+      IsLoadingFeeds = true;
+
+      var task =
+        new Task<IEnumerable<FeedItemViewModel>>(
+          () =>
+          _newsService.GetAllFeeds()
+                      .SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item)))
+                      .OrderByDescending(item => item.PublicationDate));
+      task.ContinueWith(ReloadFinished);
+      task.Start();
+    }
+
+    private void ReloadFinished(Task<IEnumerable<FeedItemViewModel>> reloadTask)
+    {
+      IsLoadingFeeds = false;
+
+      if (reloadTask.Status != TaskStatus.RanToCompletion || !reloadTask.IsCompleted)
+      {
+        throw new Exception("Feeds could not be loaded!", reloadTask.Exception);
+      }
+
       FeedItems.Clear();
-      foreach (var feedItem in _newsService.GetAllFeeds().SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item))).OrderByDescending(item => item.PublicationDate))
+      foreach (var feedItem in reloadTask.Result)
       {
         FeedItems.Add(feedItem);
       }

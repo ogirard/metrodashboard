@@ -8,10 +8,10 @@
   </ResourceDictionary.MergedDictionaries>
 
   <!--  Default ControlTemplate for : MDBusyIndicator  -->
-  <ControlTemplate x:Key="MDBusyIndicatorDefaultTemplate">
+  <ControlTemplate x:Key="MDBusyIndicatorDefaultTemplate" TargetType="{x:Type items:MDBusyIndicator}">
     <Grid>
       <controls:MetroProgressBar HorizontalAlignment="Stretch"
-                                 Foreground="{TemplateBinding Foreground}"
+                                 Foreground="{TemplateBinding BulletsBrush}"
                                  IsIndeterminate="True" />
     </Grid>
   </ControlTemplate>
@@ -21,6 +21,6 @@
     <Setter Property="SnapsToDevicePixels" Value="True" />
     <Setter Property="Template" Value="{StaticResource MDBusyIndicatorDefaultTemplate}" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+    <Setter Property="BulletsBrush" Value="{StaticResource AccentBrush}" />
   </Style>
 </ResourceDictionary>

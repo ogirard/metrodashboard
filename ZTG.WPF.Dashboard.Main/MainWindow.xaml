@@ -57,7 +57,7 @@
 
     <items:MDBusyIndicator Grid.Row="1"
                            Grid.ColumnSpan="4"
-                           IsBusy="True" />
+                           IsBusy="{Binding IsLoadingFeeds}" />
 
     <Border Grid.Row="2"
             Grid.ColumnSpan="4"

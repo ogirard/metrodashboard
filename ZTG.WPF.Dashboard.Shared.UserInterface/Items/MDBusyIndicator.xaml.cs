@@ -5,6 +5,7 @@
 //----------------------------------------------------------------------------------------------------
 
 using System.Windows;
+using System.Windows.Media;
 
 namespace ZTG.WPF.Dashboard.Shared.UserInterface.Items
 {
@@ -26,7 +27,7 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.Items
         return;
       }
 
-      busyIndicator.Visibility = busyIndicator.IsBusy ? Visibility.Visible : Visibility.Collapsed;
+      busyIndicator.Visibility = busyIndicator.IsBusy ? Visibility.Visible : Visibility.Hidden;
     }
 
     /// <summary>
@@ -46,12 +47,33 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.Items
     }
 
     /// <summary>
+    /// The BulletsBrush dependency property
+    /// </summary>
+    public static readonly DependencyProperty BulletsBrushProperty = DependencyProperty.Register("BulletsBrush", typeof(Brush), typeof(MDBusyIndicator), new PropertyMetadata(Brushes.White));
+
+    /// <summary>
+    /// Gets or sets the bullets brush.
+    /// </summary>
+    public Brush BulletsBrush
+    {
+      get
+      {
+        return (Brush)GetValue(BulletsBrushProperty);
+      }
+
+      set
+      {
+        SetValue(BulletsBrushProperty, value);
+      }
+    }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="MDBusyIndicator"/> class.
     /// </summary>
     public MDBusyIndicator()
     {
       InitializeComponent();
-      Visibility = IsBusy ? Visibility.Visible : Visibility.Collapsed;
+      Visibility = IsBusy ? Visibility.Visible : Visibility.Hidden;
     }
   }
 }

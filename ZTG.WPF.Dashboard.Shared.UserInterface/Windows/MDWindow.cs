@@ -88,7 +88,6 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.Windows
       }
     }
 
-
     /// <summary>
     /// The ChromeForeground dependency property
     /// </summary>
