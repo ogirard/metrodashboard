@@ -18,7 +18,7 @@
     </Grid.ColumnDefinitions>
 
     <items:MDIcon Grid.Column="0"
-                  Margin="4 4 4 0"
+                  Margin="8 4 4 0"
                   IconBrush="{Binding ChromeIconBrush}"
                   IconPadding="0"
                   IconPath="{Binding ChromeIconPathData}"

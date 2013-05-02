@@ -11,24 +11,23 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type RepeatButton}">
-          <Border Name="Border"
-                  Margin="1"
-                  Background="{StaticResource BasicBrush}"
-                  BorderBrush="{StaticResource BasicBrush}"
-                  BorderThickness="1"
-                  CornerRadius="2">
-            <Path HorizontalAlignment="Center"
+          <Border Margin="1" Background="Transparent">
+            <Path Name="Path"
+                  HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   Data="{Binding Path=Content,
                                  RelativeSource={RelativeSource TemplatedParent}}"
-                  Fill="{StaticResource AccentBrush}" />
+                  Fill="{StaticResource MainHapticBrush}" />
           </Border>
           <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+              <Setter TargetName="Path" Property="Fill" Value="{StaticResource AccentBrush}" />
+            </Trigger>
             <Trigger Property="IsPressed" Value="true">
-              <Setter TargetName="Border" Property="Background" Value="{StaticResource DarkAccentBrush}" />
+              <Setter TargetName="Path" Property="Fill" Value="{StaticResource DarkAccentBrush}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-              <Setter Property="Foreground" Value="{StaticResource BasicBrush}" />
+              <Setter Property="Opacity" Value="0.3" />
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -60,8 +59,16 @@
         <ControlTemplate TargetType="{x:Type Thumb}">
           <Border Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderThickness="1"
-                  CornerRadius="2" />
+                  BorderThickness="1" />
+          <ControlTemplate.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Track}}}">
+              <Setter Property="Background" Value="{StaticResource AccentBrush}" />
+              <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            </DataTrigger>
+            <Trigger Property="IsEnabled" Value="false">
+              <Setter Property="Opacity" Value="0.3" />
+            </Trigger>
+          </ControlTemplate.Triggers>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
@@ -75,7 +82,7 @@
         <RowDefinition MaxHeight="18" />
       </Grid.RowDefinitions>
       <Border Grid.RowSpan="3"
-              Background="#F0F0F0"
+              Background="Transparent"
               CornerRadius="2" />
       <RepeatButton Grid.Row="0"
                     Height="18"
@@ -90,8 +97,8 @@
         </Track.DecreaseRepeatButton>
         <Track.Thumb>
           <Thumb Margin="1,0,1,0"
-                 Background="{StaticResource BasicBrush}"
-                 BorderBrush="{StaticResource BasicBrush}"
+                 Background="{StaticResource MainHapticBrush}"
+                 BorderBrush="{StaticResource MainHapticBrush}"
                  Style="{StaticResource ScrollBarThumb}" />
         </Track.Thumb>
         <Track.IncreaseRepeatButton>
@@ -114,7 +121,7 @@
         <ColumnDefinition MaxWidth="18" />
       </Grid.ColumnDefinitions>
       <Border Grid.ColumnSpan="3"
-              Background="#F0F0F0"
+              Background="Transparent"
               CornerRadius="2" />
       <RepeatButton Grid.Column="0"
                     Width="18"
@@ -129,8 +136,8 @@
         </Track.DecreaseRepeatButton>
         <Track.Thumb>
           <Thumb Margin="0,1,0,1"
-                 Background="{StaticResource BasicBrush}"
-                 BorderBrush="{StaticResource BasicBrush}"
+                 Background="{StaticResource MainHapticBrush}"
+                 BorderBrush="{StaticResource MainHapticBrush}"
                  Style="{StaticResource ScrollBarThumb}" />
         </Track.Thumb>
         <Track.IncreaseRepeatButton>
@@ -151,11 +158,11 @@
     <Style.Triggers>
       <Trigger Property="Orientation" Value="Horizontal">
         <Setter Property="Width" Value="Auto" />
-        <Setter Property="Height" Value="18" />
+        <Setter Property="Height" Value="10" />
         <Setter Property="Template" Value="{StaticResource HorizontalScrollBar}" />
       </Trigger>
       <Trigger Property="Orientation" Value="Vertical">
-        <Setter Property="Width" Value="18" />
+        <Setter Property="Width" Value="10" />
         <Setter Property="Height" Value="Auto" />
         <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
       </Trigger>

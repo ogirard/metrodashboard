@@ -11,7 +11,7 @@
   <ControlTemplate x:Key="MDButtonDefaultControlTemplate" TargetType="{x:Type items:MDButton}">
     <Border x:Name="PART_ButtonBorder"
             Background="{TemplateBinding Background}"
-            BorderBrush="{StaticResource BasicBrush}"
+            BorderBrush="{TemplateBinding Background}"
             BorderThickness="2">
       <ContentPresenter Margin="{TemplateBinding Padding}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -30,10 +30,7 @@
         <Setter Property="Foreground" Value="{StaticResource MainBrush}" />
       </Trigger>
       <Trigger Property="IsEnabled" Value="False">
-        <Setter TargetName="PART_ButtonBorder" Property="BorderBrush" Value="{StaticResource BasicBrush}" />
-        <Setter TargetName="PART_ButtonBorder" Property="Background" Value="{StaticResource BasicBrush}" />
-        <Setter Property="Foreground" Value="{StaticResource MainBrush}" />
-        <Setter Property="Opacity" Value="0.6" />
+        <Setter Property="Opacity" Value="0.3" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
@@ -48,7 +45,7 @@
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="FontWeight" Value="SemiBold" />
-    <Setter Property="Background" Value="{StaticResource BasicBrush}" />
+    <Setter Property="Background" Value="{StaticResource MainHapticBrush}" />
     <Setter Property="SnapsToDevicePixels" Value="True" />
     <Setter Property="Padding" Value="3 3 3 3" />
     <Setter Property="Template" Value="{StaticResource MDButtonDefaultControlTemplate}" />
