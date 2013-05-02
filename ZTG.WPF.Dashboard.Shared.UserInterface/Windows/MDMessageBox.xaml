@@ -6,7 +6,7 @@
                   xmlns:windows="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Windows"
                   Title="{Binding Caption,
                                   RelativeSource={RelativeSource Self}}"
-                  Width="500"
+                  Width="750"
                   SizeToContent="Height"
                   TitleBarHeight="28">
   <Grid Margin="8" DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type windows:MDMessageBox}}}">
@@ -29,10 +29,13 @@
                    Grid.Column="1"
                    LabelType="Header2"
                    Text="{Binding Message}" />
-    <items:MDLabel Grid.Row="1"
-                   Grid.Column="1"
-                   LabelType="Field"
-                   Text="{Binding Details}" />
+    <ScrollViewer Grid.Row="1"
+                  Grid.Column="1"
+                  MaxHeight="500"
+                  HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto">
+      <items:MDLabel LabelType="Field" Text="{Binding Details}" />
+    </ScrollViewer>
     <StackPanel Grid.Row="2"
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Right"

@@ -67,6 +67,29 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.Windows
     }
 
     /// <summary>
+    /// The ChromeIconBrush dependency property
+    /// </summary>
+    public static readonly DependencyProperty ChromeIconBrushProperty = DependencyProperty.Register(
+      "ChromeIconBrush", typeof(Brush), typeof(MDWindow), new PropertyMetadata(Brushes.White));
+
+    /// <summary>
+    /// Gets or sets the chrome icon brush.
+    /// </summary>
+    public Brush ChromeIconBrush
+    {
+      get
+      {
+        return (Brush)GetValue(ChromeIconBrushProperty);
+      }
+
+      set
+      {
+        SetValue(ChromeIconBrushProperty, value);
+      }
+    }
+
+
+    /// <summary>
     /// The ChromeForeground dependency property
     /// </summary>
     public static readonly DependencyProperty ChromeForegroundProperty = DependencyProperty.Register("ChromeForeground", typeof(Brush), typeof(MDWindow), new PropertyMetadata(Brushes.White));
