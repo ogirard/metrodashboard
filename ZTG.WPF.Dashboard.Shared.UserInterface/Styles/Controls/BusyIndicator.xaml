@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                    xmlns:items="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Items">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="../Defaults/Basics.xaml" />
+    <ResourceDictionary Source="../Defaults/Brushes.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <!--  Default ControlTemplate for : MDBusyIndicator  -->
+  <ControlTemplate x:Key="MDBusyIndicatorDefaultTemplate">
+    <Grid>
+      <controls:MetroProgressBar HorizontalAlignment="Stretch"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 IsIndeterminate="True" />
+    </Grid>
+  </ControlTemplate>
+
+  <!--  Implicit style for : MDBusyIndicator  -->
+  <Style TargetType="{x:Type items:MDBusyIndicator}">
+    <Setter Property="SnapsToDevicePixels" Value="True" />
+    <Setter Property="Template" Value="{StaticResource MDBusyIndicatorDefaultTemplate}" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+  </Style>
+</ResourceDictionary>

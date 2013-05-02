@@ -18,6 +18,7 @@
     <ResourceDictionary Source="Controls/Buttons.xaml" />
     <ResourceDictionary Source="Controls/Icons.xaml" />
     <ResourceDictionary Source="Controls/Scrollbar.xaml" />
+    <ResourceDictionary Source="Controls/BusyIndicator.xaml" />
   </ResourceDictionary.MergedDictionaries>
 
   

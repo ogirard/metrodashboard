@@ -33,7 +33,7 @@
           <Style TargetType="TextBox">
             <Setter Property="Margin" Value="{StaticResource DefaultFieldMargin}" />
             <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}" />
-            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Style.Triggers>
               <Trigger Property="IsMouseOver" Value="True">

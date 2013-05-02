@@ -21,6 +21,7 @@
   <Grid Margin="8">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
@@ -33,7 +34,7 @@
                    Grid.Column="0"
                    Margin="4"
                    LabelType="Header1"
-                   Text="Today" />
+                   Text="Latest News" />
     <items:MDButton Grid.Row="0"
                     Grid.Column="2"
                     Command="{Binding ReloadCommand}">
@@ -54,7 +55,11 @@
                     Command="{Binding OptionsCommand}"
                     Content="Options" />
 
-    <Border Grid.Row="1"
+    <items:MDBusyIndicator Grid.Row="1"
+                           Grid.ColumnSpan="4"
+                           IsBusy="True" />
+
+    <Border Grid.Row="2"
             Grid.ColumnSpan="4"
             Margin="4 16 4 16"
             Background="{StaticResource MainBrush}"

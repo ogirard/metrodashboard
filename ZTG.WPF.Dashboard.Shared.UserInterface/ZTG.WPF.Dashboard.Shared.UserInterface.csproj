@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="Items\Enums\IconType.cs" />
     <Compile Include="Items\Enums\LabelType.cs" />
+    <Compile Include="Items\MDBusyIndicator.xaml.cs">
+      <DependentUpon>MDBusyIndicator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Items\MDButton.xaml.cs">
       <DependentUpon>MDButton.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
     <Compile Include="Windows\MDWindowHeader.xaml.cs">
       <DependentUpon>MDWindowHeader.xaml</DependentUpon>
     </Compile>
+    <Page Include="Items\MDBusyIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Items\MDButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Items\MDLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls\BusyIndicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
