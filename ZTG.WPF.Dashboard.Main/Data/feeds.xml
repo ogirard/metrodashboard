@@ -1,10 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feeds>
   <feed>
-    <id>34d314d8-5554-4738-ba80-0c5e8e749288</id>
-    <name>20 Minuten - Digital</name>
-    <path>http://www.20min.ch/rss/rss.tmpl?type=channel&amp;get=10</path>
-    <description>20 Minuten RSS-Feed: Digital</description>
+    <id>976f8195-8b93-4ed2-87c7-f45e3f9c3bb6</id>
+    <name>Tagi Front</name>
+    <path>http://www.tagesanzeiger.ch/rss.html</path>
+    <description>RSS Tagesanzeiger</description>
+    <tags></tags>
+  </feed>
+  <feed>
+    <id>f9691f0f-d71a-4fe4-ba1c-91ac342d6191</id>
+    <name>20 Minuten - Front</name>
+    <path>http://www.20min.ch/rss/rss.tmpl?type=channel&amp;get=1</path>
+    <description></description>
+    <tags></tags>
+  </feed>
+  <feed>
+    <id>6a33ebca-1e83-48c7-a232-9a9444a2a12a</id>
+    <name>NZZ</name>
+    <path>http://www.nzz.ch/feeds/recent.rss</path>
+    <description></description>
+    <tags></tags>
+  </feed>
+  <feed>
+    <id>5f5719ac-54bf-4520-9f14-d1cf878126d7</id>
+    <name>SRF News CH</name>
+    <path>http://www.srf.ch/news/bnf/rss/1890</path>
+    <description></description>
     <tags></tags>
   </feed>
 </feeds>
