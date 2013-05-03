@@ -13,6 +13,7 @@ using ZTG.WPF.Dashboard.Main.BusinessService;
 using ZTG.WPF.Dashboard.Main.Model;
 using ZTG.WPF.Dashboard.Shared.UserInterface.Windows;
 using ZTG.WPF.Dashboard.Shared.UserInterface.Windows.Enums;
+using ZTG.WPF.Dashboard.Shared.Utilities;
 using ZTG.WPF.Dashboard.Shared.WPF;
 
 using MessageBoxResult = ZTG.WPF.Dashboard.Shared.UserInterface.Windows.Enums.MessageBoxResult;
@@ -21,6 +22,7 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
 {
   public class OptionsUIService : NotificationObject
   {
+    private readonly NewsService _newsService;
     private readonly FeedService _feedService;
 
     private readonly DelegateCommand _openOptionsDialogCommand;
@@ -69,11 +71,18 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
     public ICommand DeleteFeedCommand { get { return _deleteFeedCommand; } }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="OptionsUIService"/> class.
+    /// Initializes a new instance of the <see cref="OptionsUIService" /> class.
     /// </summary>
-    public OptionsUIService(FeedService feedService)
+    /// <param name="feedService">The feed service.</param>
+    /// <param name="newsService">The news service.</param>
+    public OptionsUIService(FeedService feedService, NewsService newsService)
     {
+      feedService.ArgumentNotNull("feedService");
+      newsService.ArgumentNotNull("newsService");
+
       _feedService = feedService;
+      _newsService = newsService;
+
       Feeds = new ObservableCollection<Feed>(_feedService.Feeds);
 
       _openOptionsDialogCommand = new DelegateCommand(OpenOptionsDialog, CanOpenOptionsDialog);
@@ -112,9 +121,30 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
     {
       var addViewModel = new FeedViewModel { Feed = _feedService.CreateNewFeed(), HeaderText = "Register new RSS Feed" };
       var addDialog = new FeedDialog { Owner = _optionsDialog, ViewModel = addViewModel };
+      addViewModel.CheckFeedCommand = new DelegateCommand(() => CheckFeed(addViewModel));
       addViewModel.CancelCommand = new DelegateCommand(addDialog.Close);
       addViewModel.SaveCommand = new DelegateCommand(() => SaveAndAddFeed(addDialog));
       addDialog.ShowDialog();
+    }
+
+    private void CheckFeed(FeedViewModel viewModel)
+    {
+      if (viewModel.Feed.Path == null)
+      {
+        return;
+      }
+
+      try
+      {
+        var feed = _newsService.LoadFeed(viewModel.Feed.Path);
+        viewModel.Feed.Name = feed.Channel.Title;
+        viewModel.Feed.Description = feed.Channel.Description;
+      }
+      catch
+      {
+        viewModel.Feed.Name = "No valid RSS feed!";
+        viewModel.Feed.Description = string.Empty;
+      }
     }
 
     private void SaveAndAddFeed(FeedDialog addDialog)
@@ -149,6 +179,7 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
     {
       var editViewModel = new FeedViewModel { Feed = SelectedFeed, HeaderText = "Edit RSS Feed" };
       var editDialog = new FeedDialog { Owner = _optionsDialog, ViewModel = editViewModel };
+      editViewModel.CheckFeedCommand = new DelegateCommand(() => CheckFeed(editViewModel));
       editViewModel.CancelCommand = new DelegateCommand(() => CancelEditFeed(editDialog));
       editViewModel.SaveCommand = new DelegateCommand(() => SaveAndEditFeed(editDialog));
       editDialog.ShowDialog();

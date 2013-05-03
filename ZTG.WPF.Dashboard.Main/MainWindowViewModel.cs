@@ -76,7 +76,7 @@ namespace ZTG.WPF.Dashboard.Main
       _dataAccess = new FeedDataAccess();
       _feedService = new FeedService(_dataAccess);
       _newsService = new NewsService(_feedService);
-      _optionsUIService = new OptionsUIService(_feedService);
+      _optionsUIService = new OptionsUIService(_feedService, _newsService);
 
       FeedItems = new ObservableCollection<FeedItemViewModel>();
       ReloadCommand = new DelegateCommand(ReloadAsync);

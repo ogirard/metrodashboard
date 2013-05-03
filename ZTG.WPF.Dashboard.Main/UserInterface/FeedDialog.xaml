@@ -52,6 +52,7 @@
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto" />
           <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
           <RowDefinition Height="Auto" />
@@ -59,23 +60,28 @@
           <RowDefinition Height="Auto" />
           <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <items:MDLabel Grid.Row="0"
                        Grid.Column="0"
                        LabelType="Field"
-                       Text="Name" />
+                       Text="Path" />
         <TextBox Grid.Row="0"
                  Grid.Column="1"
-                 Text="{Binding Feed.Name,
+                 Text="{Binding Feed.Path,
                                 Mode=TwoWay,
                                 UpdateSourceTrigger=LostFocus}" />
+
         <items:MDLabel Grid.Row="1"
                        Grid.Column="0"
                        LabelType="Field"
-                       Text="Path" />
+                       Text="Name" />
+        <items:MDButton Grid.Row="0"
+                        Grid.Column="2"
+                        MinWidth="0"
+                        Command="{Binding CheckFeedCommand}"
+                        Content="Check" />
         <TextBox Grid.Row="1"
                  Grid.Column="1"
-                 Text="{Binding Feed.Path,
+                 Text="{Binding Feed.Name,
                                 Mode=TwoWay,
                                 UpdateSourceTrigger=LostFocus}" />
         <items:MDLabel Grid.Row="2"

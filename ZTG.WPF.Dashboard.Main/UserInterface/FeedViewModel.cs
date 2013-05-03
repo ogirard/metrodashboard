@@ -51,6 +51,8 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
       }
     }
 
+    public ICommand CheckFeedCommand { get; set; }
+
     public ICommand SaveCommand { get; set; }
 
     public ICommand CancelCommand { get; set; }
