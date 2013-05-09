@@ -47,7 +47,7 @@
       </Trigger>
       <Trigger Property="IconType" Value="ArrowRight">
         <Setter Property="IconPath">
-          <Setter.Value>F1M568.254,-7.43524L568.159,-7.34277 567.977,-7.52246 546.559,-28.9417 525.484,-28.9417 549.787,-4.63446 557.439,3.01532 557.619,3.19629 550.067,10.7549 525.758,35.0583 546.834,35.0583 568.254,13.6429 578.792,3.10254 568.254,-7.43524z</Setter.Value>
+          <Setter.Value>M299.134,162.984L334.087,194.984 299.134,226.984 299.134,162.984z</Setter.Value>
         </Setter>
       </Trigger>
     </Style.Triggers>

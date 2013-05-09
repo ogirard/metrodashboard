@@ -122,6 +122,7 @@
                     <items:MDIcon Margin="0"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
+                                  IconSize="16 16"
                                   IconType="ArrowRight" />
                   </items:MDButton.Content>
                 </items:MDButton>
