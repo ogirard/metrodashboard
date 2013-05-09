@@ -20,7 +20,7 @@ namespace ZTG.WPF.Dashboard.Main
 {
   public class MainWindowViewModel : NotificationObject
   {
-    private readonly NewsService _newsService;
+    private readonly RssNewsService _rssNewsService;
     private readonly OptionsUIService _optionsUIService;
     private readonly IFeedDataAccess _dataAccess;
     private readonly FeedService _feedService;
@@ -75,8 +75,8 @@ namespace ZTG.WPF.Dashboard.Main
     {
       _dataAccess = new FeedDataAccess();
       _feedService = new FeedService(_dataAccess);
-      _newsService = new NewsService(_feedService);
-      _optionsUIService = new OptionsUIService(_feedService, _newsService);
+      _rssNewsService = new RssNewsService();
+      _optionsUIService = new OptionsUIService(_feedService, _rssNewsService);
 
       FeedItems = new ObservableCollection<FeedItemViewModel>();
       ReloadCommand = new DelegateCommand(ReloadAsync);
@@ -88,8 +88,8 @@ namespace ZTG.WPF.Dashboard.Main
       var context = TaskScheduler.FromCurrentSynchronizationContext();
       Task.Factory.StartNew<IEnumerable<FeedItemViewModel>>(
         () =>
-        _newsService.GetAllFeeds()
-                    .SelectMany(feed => feed.Channel.Items.Select(item => new FeedItemViewModel(feed, item)))
+        _rssNewsService.LoadFeeds(_feedService.Feeds.Select(f => f.Path))
+                    .SelectMany(feed => feed.Items.Select(item => new FeedItemViewModel(item)))
                     .OrderByDescending(item => item.PublicationDate)).ContinueWith(ReloadFinished, context);
     }
 

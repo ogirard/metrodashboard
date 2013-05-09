@@ -8,31 +8,25 @@ using System;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Moq;
-
 using ZTG.WPF.Dashboard.Main.BusinessService;
-using ZTG.WPF.Dashboard.Main.Model;
 
 namespace ZTG.WPF.Dashboard.Tests
 {
   /// <summary>
-  /// Tests for <see cref="NewsService"/>
+  /// Tests for <see cref="RssNewsService"/>
   /// </summary>
   [TestClass]
   public class NewsServiceFixture
   {
     [TestMethod]
-    public void LoadFeedReturnsFeed()
+    public void LoadFeedsReturnsFeeds()
     {
       // Arrange
-      var mockedFeedService = new Mock<FeedService>();
-      var feeds = new[] { new Feed(Guid.NewGuid()) { Path = new Uri("http://heise.de.feedsportal.com/c/35207/f/653902/index.rss") } };
-      mockedFeedService.Setup(fs => fs.Feeds).Returns(feeds);
-
-      var target = new NewsService(mockedFeedService.Object);
+      var feeds = new[] { new Uri("http://www.20min.ch/rss/rss.tmpl?type=channel&get=4") };
+      var target = new RssNewsService();
 
       // Act
-      var feed = target.GetAllFeeds();
+      var feed = target.LoadFeeds(feeds);
 
       // Assert
       Assert.IsNotNull(feed);

@@ -65,6 +65,12 @@ namespace ZTG.WPF.Dashboard.Main.Model
 
       set
       {
+        if (value != _path && value != null && !value.IsAbsoluteUri)
+        {
+          // convert to absolute Uri
+          value = new Uri("http://" + value);
+        }
+
         if (ChangeAndNotify(ref _path, value, "Path"))
         {
           Notify("DisplayPath");

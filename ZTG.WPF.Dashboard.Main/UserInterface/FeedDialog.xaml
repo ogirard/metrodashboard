@@ -8,9 +8,9 @@
                   xmlns:windows="clr-namespace:ZTG.WPF.Dashboard.Shared.UserInterface.Windows;assembly=ZTG.WPF.Dashboard.Shared.UserInterface"
                   Title="Metro Dashboard - Manage Feeds"
                   Width="450"
-                  Height="325"
+                  Height="350"
                   MinWidth="300"
-                  MinHeight="325"
+                  MinHeight="350"
                   d:DataContext="{d:DesignInstance userInterface:FeedViewModel}"
                   TitleBarHeight="28"
                   WindowStartupLocation="CenterOwner"
@@ -35,6 +35,8 @@
             <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="MinHeight" Value="25" />
+            <Setter Property="Padding" Value="2" />
             <Style.Triggers>
               <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />

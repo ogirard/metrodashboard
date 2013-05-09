@@ -22,7 +22,7 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
 {
   public class OptionsUIService : NotificationObject
   {
-    private readonly NewsService _newsService;
+    private readonly RssNewsService _rssNewsService;
     private readonly FeedService _feedService;
 
     private readonly DelegateCommand _openOptionsDialogCommand;
@@ -74,14 +74,14 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
     /// Initializes a new instance of the <see cref="OptionsUIService" /> class.
     /// </summary>
     /// <param name="feedService">The feed service.</param>
-    /// <param name="newsService">The news service.</param>
-    public OptionsUIService(FeedService feedService, NewsService newsService)
+    /// <param name="rssNewsService">The news service.</param>
+    public OptionsUIService(FeedService feedService, RssNewsService rssNewsService)
     {
-      feedService.ArgumentNotNull("feedService");
-      newsService.ArgumentNotNull("newsService");
+      feedService.ArgumentNotNull("FeedService");
+      rssNewsService.ArgumentNotNull("RssNewsService");
 
       _feedService = feedService;
-      _newsService = newsService;
+      _rssNewsService = rssNewsService;
 
       Feeds = new ObservableCollection<Feed>(_feedService.Feeds);
 
@@ -136,9 +136,9 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
 
       try
       {
-        var feed = _newsService.LoadFeed(viewModel.Feed.Path);
-        viewModel.Feed.Name = feed.Channel.Title;
-        viewModel.Feed.Description = feed.Channel.Description;
+        var feed = _rssNewsService.LoadFeed(viewModel.Feed.Path);
+        viewModel.Feed.Name = feed.Name;
+        viewModel.Feed.Description = feed.Description;
       }
       catch
       {

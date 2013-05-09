@@ -7,11 +7,9 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-using Argotic.Syndication;
-
+using ZTG.WPF.Dashboard.Main.BusinessService;
 using ZTG.WPF.Dashboard.Shared.Utilities;
 using ZTG.WPF.Dashboard.Shared.WPF;
 
@@ -19,9 +17,7 @@ namespace ZTG.WPF.Dashboard.Main
 {
   public class FeedItemViewModel : NotificationObject
   {
-    private readonly RssFeed _feed;
-
-    private readonly RssItem _feedItem;
+    private readonly RssFeedItem _feedItem;
 
     public string Title
     {
@@ -51,15 +47,22 @@ namespace ZTG.WPF.Dashboard.Main
     {
       get
       {
-        return _feed.Channel.Title + " - " + _feedItem.PublicationDate.ToString("dd.MM.yyyy HH:mm");
+        return _feedItem.Feed.Name + " - " + _feedItem.PublicationDate.ToString("dd.MM.yyyy HH:mm");
       }
     }
 
-    public ImageSource Image
+    private BitmapImage _image;
+
+    public BitmapImage Image
     {
       get
       {
-        return null;
+        if (_image == null && _feedItem.ImagePath != null)
+        {
+          _image = new BitmapImage(_feedItem.ImagePath);
+        }
+
+        return _image;
       }
     }
 
@@ -68,14 +71,11 @@ namespace ZTG.WPF.Dashboard.Main
     /// <summary>
     /// Initializes a new instance of the <see cref="FeedItemViewModel" /> class.
     /// </summary>
-    /// <param name="feed">The feed.</param>
     /// <param name="feedItem">The feed item.</param>
-    public FeedItemViewModel(RssFeed feed, RssItem feedItem)
+    public FeedItemViewModel(RssFeedItem feedItem)
     {
-      feed.ArgumentNotNull("feed");
       feedItem.ArgumentNotNull("feedItem");
 
-      _feed = feed;
       _feedItem = feedItem;
 
       OpenLinkCommand = new DelegateCommand(OpenLink, () => _feedItem.Link != null);

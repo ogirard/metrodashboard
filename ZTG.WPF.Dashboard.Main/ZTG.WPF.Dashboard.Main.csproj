@@ -48,18 +48,6 @@
     <ApplicationIcon>Resources\ApplicationIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Argotic.Common">
-      <HintPath>..\packages\Argotic.Common.2008.0.2.0\lib\Net35\Argotic.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Argotic.Core">
-      <HintPath>..\packages\Argotic.Core.2008.0.2.0\lib\Net35\Argotic.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Argotic.Extensions">
-      <HintPath>..\packages\Argotic.Extensions.2008.0.2.0\lib\Net35\Argotic.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
-    </Reference>
     <Reference Include="MahApps.Metro, Version=0.11.0.9, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MahApps.Metro.0.11.0.9-ALPHA\lib\net40\MahApps.Metro.dll</HintPath>
@@ -87,6 +75,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BusinessService\FeedService.cs" />
+    <Compile Include="BusinessService\RssFeed.cs" />
+    <Compile Include="BusinessService\RssFeedItem.cs" />
     <Compile Include="UserInterface\FeedDialog.xaml.cs">
       <DependentUpon>FeedDialog.xaml</DependentUpon>
     </Compile>
@@ -125,7 +115,7 @@
   <ItemGroup>
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Model\Feed.cs" />
-    <Compile Include="BusinessService\NewsService.cs" />
+    <Compile Include="BusinessService\RssNewsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
