@@ -15,6 +15,9 @@ namespace ZTG.WPF.Dashboard.Shared.UserInterface.Items.Enums
     Reload,
 
     /// <summary />
-    Options
+    Options,
+
+    /// <summary />
+    ArrowRight
   }
 }
