@@ -6,8 +6,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 
+using ZTG.WPF.Dashboard.Shared.Extensions;
 using ZTG.WPF.Dashboard.Shared.Utilities;
 
 namespace ZTG.WPF.Dashboard.Main.BusinessService
@@ -16,13 +18,15 @@ namespace ZTG.WPF.Dashboard.Main.BusinessService
   {
     private readonly XElement _feedElement;
 
-    public string Name { get; private set; }
+    public Uri FeedPath { get; private set; }
 
-    public Uri ImagePath { get; private set; }
+    public string Title { get; private set; }
+
+    public Uri Link { get; private set; }
 
     public string Description { get; private set; }
 
-    public Uri FeedPath { get; private set; }
+    public Uri ImagePath { get; private set; }
 
     public IEnumerable<RssFeedItem> Items { get; private set; }
 
@@ -38,6 +42,27 @@ namespace ZTG.WPF.Dashboard.Main.BusinessService
 
       FeedPath = feedPath;
       _feedElement = feedElement;
+
+      InitializeFeed();
+    }
+
+    private void InitializeFeed()
+    {
+      var channel = _feedElement.GetElement("channel");
+      Title = channel.GetElementValue("title");
+      Link = new Uri(channel.GetElementValue("link"));
+      Description = channel.GetElementValue("description");
+
+      if (channel.HasElement("image"))
+      {
+        var image = channel.GetElement("image");
+        if (image.HasElement("url"))
+        {
+          ImagePath = new Uri(image.GetElementValue("url"));
+        }
+      }
+
+      Items = channel.Elements("item").Select(i => new RssFeedItem(this, i)).ToList();
     }
   }
 }

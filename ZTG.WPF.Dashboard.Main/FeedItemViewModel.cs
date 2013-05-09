@@ -47,7 +47,7 @@ namespace ZTG.WPF.Dashboard.Main
     {
       get
       {
-        return _feedItem.Feed.Name + " - " + _feedItem.PublicationDate.ToString("dd.MM.yyyy HH:mm");
+        return _feedItem.Feed.Title + " - " + _feedItem.PublicationDate.ToString("dd.MM.yyyy HH:mm");
       }
     }
 
@@ -57,9 +57,16 @@ namespace ZTG.WPF.Dashboard.Main
     {
       get
       {
-        if (_image == null && _feedItem.ImagePath != null)
+        if (_image == null)
         {
-          _image = new BitmapImage(_feedItem.ImagePath);
+          if (_feedItem.ImagePath != null)
+          {
+            _image = new BitmapImage(_feedItem.ImagePath);
+          }
+          else if (_feedItem.Feed.ImagePath != null)
+          {
+            _image = new BitmapImage(_feedItem.Feed.ImagePath);
+          }
         }
 
         return _image;

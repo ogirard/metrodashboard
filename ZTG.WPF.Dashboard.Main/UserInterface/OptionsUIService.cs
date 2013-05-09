@@ -137,7 +137,7 @@ namespace ZTG.WPF.Dashboard.Main.UserInterface
       try
       {
         var feed = _rssNewsService.LoadFeed(viewModel.Feed.Path);
-        viewModel.Feed.Name = feed.Name;
+        viewModel.Feed.Name = feed.Title;
         viewModel.Feed.Description = feed.Description;
       }
       catch

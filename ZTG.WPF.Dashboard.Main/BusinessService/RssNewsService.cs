@@ -53,7 +53,7 @@ namespace ZTG.WPF.Dashboard.Main.BusinessService
       // TODO: async delay for testing
       Thread.Sleep(2000);
 
-      return feedUris.Select(LoadFeed);
+      return feedUris.Select(LoadFeed).ToList();
     }
   }
 }
