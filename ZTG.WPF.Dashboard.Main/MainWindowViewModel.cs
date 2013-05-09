@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 using ZTG.WPF.Dashboard.Main.BusinessService;
@@ -43,6 +44,8 @@ namespace ZTG.WPF.Dashboard.Main
       }
     }
 
+    public ListCollectionView FeedItemCollection { get; set; }
+
     public ICommand ReloadCommand { get; private set; }
 
     public ICommand OptionsCommand
@@ -68,6 +71,28 @@ namespace ZTG.WPF.Dashboard.Main
       }
     }
 
+    private string _filterText;
+
+    /// <summary>
+    /// Gets or sets the FilterText.
+    /// </summary>
+    public string FilterText
+    {
+      get
+      {
+        return _filterText;
+      }
+
+      set
+      {
+        if (ChangeAndNotify(ref _filterText, value, "FilterText"))
+        {
+          FeedItemCollection.Refresh();
+        }
+      }
+    }
+
+
     /// <summary>
     /// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
     /// </summary>
@@ -79,7 +104,28 @@ namespace ZTG.WPF.Dashboard.Main
       _optionsUIService = new OptionsUIService(_feedService, _rssNewsService);
 
       FeedItems = new ObservableCollection<FeedItemViewModel>();
+      FeedItemCollection = new ListCollectionView(FeedItems) { Filter = FilterFeedItem };
+
       ReloadCommand = new DelegateCommand(ReloadAsync);
+    }
+
+    private bool FilterFeedItem(object feedItemObj)
+    {
+      var feedItem = feedItemObj as FeedItemViewModel;
+      if (feedItem == null)
+      {
+        return false;
+      }
+
+      if (string.IsNullOrEmpty(FilterText))
+      {
+        return true;
+      }
+
+      var filter = FilterText.ToLowerInvariant().Trim();
+
+      return feedItem.Title.ToLowerInvariant().Contains(filter)
+             || feedItem.Description.ToLowerInvariant().Contains(filter);
     }
 
     private void ReloadAsync()

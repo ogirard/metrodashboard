@@ -22,6 +22,7 @@
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
@@ -58,14 +59,43 @@
     <items:MDBusyIndicator Grid.Row="1"
                            Grid.ColumnSpan="4"
                            IsBusy="{Binding IsLoadingFeeds}" />
+    <TextBox Grid.Row="2"
+             Grid.ColumnSpan="4"
+             Text="{Binding FilterText,
+                            Mode=TwoWay,
+                            UpdateSourceTrigger=PropertyChanged}">
+      <TextBox.Style>
+        <Style TargetType="TextBox">
+          <Setter Property="Margin" Value="{StaticResource DefaultFieldMargin}" />
+          <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}" />
+          <Setter Property="BorderThickness" Value="1" />
+          <Setter Property="FontWeight" Value="SemiBold" />
+          <Setter Property="MinHeight" Value="25" />
+          <Setter Property="VerticalContentAlignment" Value="Center" />
+          <Setter Property="HorizontalAlignment" Value="Left" />
+          <Setter Property="Width" Value="350" />
+          <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+              <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+              <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            </Trigger>
+          </Style.Triggers>
+        </Style>
+      </TextBox.Style>
+    </TextBox>
 
-    <Border Grid.Row="2"
+    <Border Grid.Row="3"
             Grid.ColumnSpan="4"
             Margin="4 16 4 16"
             Background="{StaticResource MainBrush}"
             Padding="8">
       <ScrollViewer>
-        <ItemsControl Grid.IsSharedSizeScope="True" ItemsSource="{Binding FeedItems}">
+        <ItemsControl Grid.IsSharedSizeScope="True" ItemsSource="{Binding FeedItemCollection}">
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="{x:Type main:FeedItemViewModel}">
               <Grid>
