@@ -47,12 +47,35 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   SelectedItem="{Binding SelectedFeed,
-                                         Mode=TwoWay}">
-          <ListView.ItemContainerStyle>
-            <Style TargetType="{x:Type ListViewItem}">
-              <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                         Mode=TwoWay}"
+                  SelectionMode="Single">
+          <ListView.Resources>
+            <ControlTemplate x:Key="ListViewItemTemplate" TargetType="ListViewItem">
+              <Border x:Name="border"
+                      Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      CornerRadius="2"
+                      SnapsToDevicePixels="true">
+                <ContentPresenter Margin="2"
+                                  ContentSource="Content"
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+              </Border>
+            </ControlTemplate>
+            <Style TargetType="ListViewItem">
+              <Setter Property="Height" Value="24" />
+              <Setter Property="Template" Value="{StaticResource ListViewItemTemplate}" />
+              <Style.Triggers>
+                <MultiTrigger>
+                  <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="true" />
+                    <Condition Property="Selector.IsSelectionActive" Value="true" />
+                  </MultiTrigger.Conditions>
+                  <Setter Property="Background" Value="{StaticResource LightAccentBrush}" />
+                </MultiTrigger>
+              </Style.Triggers>
             </Style>
-          </ListView.ItemContainerStyle>
+          </ListView.Resources>
           <ListView.ItemTemplate>
             <DataTemplate DataType="{x:Type model:Feed}">
               <Grid HorizontalAlignment="Stretch" ToolTip="{Binding Description}">
@@ -65,7 +88,7 @@
                                Margin="2"
                                LabelType="Value"
                                Text="{Binding Name}" />
-                <items:MDLabel Grid.Column="1"
+                <items:MDLabel Grid.Column="2"
                                Margin="2"
                                LabelType="Hint"
                                Text="{Binding DisplayPath}"
