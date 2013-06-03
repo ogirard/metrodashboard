@@ -15,6 +15,7 @@ using System.Windows.Input;
 using ZTG.WPF.Dashboard.Main.BusinessService;
 using ZTG.WPF.Dashboard.Main.DataAccess;
 using ZTG.WPF.Dashboard.Main.UserInterface;
+using ZTG.WPF.Dashboard.Shared.Utilities;
 using ZTG.WPF.Dashboard.Shared.WPF;
 
 namespace ZTG.WPF.Dashboard.Main
@@ -96,12 +97,17 @@ namespace ZTG.WPF.Dashboard.Main
     /// <summary>
     /// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
     /// </summary>
-    public MainWindowViewModel()
+    public MainWindowViewModel(IFeedDataAccess feedDataAccess, FeedService feedService, RssNewsService rssNewsService, OptionsUIService optionsUIService)
     {
-      _dataAccess = new FeedDataAccess();
-      _feedService = new FeedService(_dataAccess);
-      _rssNewsService = new RssNewsService();
-      _optionsUIService = new OptionsUIService(_feedService, _rssNewsService);
+      feedDataAccess.ArgumentNotNull("feedDataAccess");
+      feedService.ArgumentNotNull("feedService");
+      rssNewsService.ArgumentNotNull("rssNewsService");
+      optionsUIService.ArgumentNotNull("optionsUIService");
+
+      _dataAccess = feedDataAccess;
+      _feedService = feedService;
+      _rssNewsService = rssNewsService;
+      _optionsUIService = optionsUIService;
 
       FeedItems = new ObservableCollection<FeedItemViewModel>();
       FeedItemCollection = new ListCollectionView(FeedItems) { Filter = FilterFeedItem };

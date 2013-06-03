@@ -43,6 +43,7 @@
         <ListView Grid.Row="1"
                   Margin="{StaticResource DefaultFieldMargin}"
                   HorizontalContentAlignment="Stretch"
+                  Grid.IsSharedSizeScope="True"
                   ItemsSource="{Binding Feeds}"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -82,7 +83,7 @@
                 <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="Auto" SharedSizeGroup="Name" />
                   <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto" SharedSizeGroup="DisplayPath" />
                 </Grid.ColumnDefinitions>
                 <items:MDLabel Grid.Column="0"
                                Margin="2"

@@ -6,6 +6,10 @@
 
 using System;
 using System.Globalization;
+
+using ZTG.WPF.Dashboard.Main.BusinessService;
+using ZTG.WPF.Dashboard.Main.DataAccess;
+using ZTG.WPF.Dashboard.Main.UserInterface;
 using ZTG.WPF.Dashboard.Shared.Localization;
 
 namespace ZTG.WPF.Dashboard.Main
@@ -20,7 +24,12 @@ namespace ZTG.WPF.Dashboard.Main
 
       var mainWindow = new MainWindow();
       _excpetionHandler = new ExceptionHandler(mainWindow);
-      var mainWindowViewVodel = new MainWindowViewModel();
+
+      var dataAccess = new FeedDataAccess();
+      var feedService = new FeedService(dataAccess);
+      var rssNewsService = new RssNewsService();
+      var optionsUIService = new OptionsUIService(feedService, rssNewsService);
+      var mainWindowViewVodel = new MainWindowViewModel(dataAccess, feedService, rssNewsService, optionsUIService);
       mainWindow.ViewModel = mainWindowViewVodel;
       return mainWindow;
     }
