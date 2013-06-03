@@ -93,7 +93,6 @@ namespace ZTG.WPF.Dashboard.Main
       }
     }
 
-
     /// <summary>
     /// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
     /// </summary>
