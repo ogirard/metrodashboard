@@ -7,6 +7,8 @@
 using System;
 using System.Globalization;
 
+using Ninject;
+
 using ZTG.WPF.Dashboard.Main.BusinessService;
 using ZTG.WPF.Dashboard.Main.DataAccess;
 using ZTG.WPF.Dashboard.Main.UserInterface;
@@ -16,7 +18,20 @@ namespace ZTG.WPF.Dashboard.Main
 {
   public class Bootstrapper : IDisposable
   {
+    private readonly IKernel _kernel;
+
     private ExceptionHandler _excpetionHandler;
+
+    public Bootstrapper()
+    {
+      // setup DI container
+      _kernel = new StandardKernel();
+      _kernel.Bind<IFeedDataAccess>().To<FeedDataAccess>();
+      _kernel.Bind<FeedService>().ToSelf();
+      _kernel.Bind<RssNewsService>().ToSelf();
+      _kernel.Bind<OptionsUIService>().ToSelf().InSingletonScope();
+      _kernel.Bind<MainWindowViewModel>().ToSelf().InSingletonScope();
+    }
 
     public MainWindow Run()
     {
@@ -24,13 +39,7 @@ namespace ZTG.WPF.Dashboard.Main
 
       var mainWindow = new MainWindow();
       _excpetionHandler = new ExceptionHandler(mainWindow);
-
-      var dataAccess = new FeedDataAccess();
-      var feedService = new FeedService(dataAccess);
-      var rssNewsService = new RssNewsService();
-      var optionsUIService = new OptionsUIService(feedService, rssNewsService);
-      var mainWindowViewVodel = new MainWindowViewModel(dataAccess, feedService, rssNewsService, optionsUIService);
-      mainWindow.ViewModel = mainWindowViewVodel;
+      mainWindow.ViewModel = _kernel.Get<MainWindowViewModel>();
       return mainWindow;
     }
 
