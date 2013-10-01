@@ -28,7 +28,7 @@
         <Setter Property="Foreground" Value="{StaticResource HintBrush}" />
       </Trigger>
       <Trigger Property="LabelType" Value="Warning">
-        <Setter Property="Margin" Value="{StaticResource WarningBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource WarningBrush}" />
       </Trigger>
       <Trigger Property="LabelType" Value="Header1">
         <Setter Property="FontSize" Value="{StaticResource Header1FontSize}" />
