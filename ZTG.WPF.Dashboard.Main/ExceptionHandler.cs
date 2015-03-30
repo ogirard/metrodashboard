@@ -165,11 +165,14 @@ namespace ZTG.WPF.Dashboard.Main
     /// <summary>
     /// Dispose data containers
     /// </summary>
-    protected virtual void Dispose(bool unmanaged)
+    protected virtual void Dispose(bool disposing)
     {
-      Dispatcher.CurrentDispatcher.UnhandledException -= CurrentDispatcherUnhandledException;
-      AppDomain.CurrentDomain.UnhandledException -= CurrentDomainUnhandledException;
-      TaskScheduler.UnobservedTaskException -= TaskSchedulerUnobservedTaskException;
+      if(disposing)
+      {
+        Dispatcher.CurrentDispatcher.UnhandledException -= CurrentDispatcherUnhandledException;
+        AppDomain.CurrentDomain.UnhandledException -= CurrentDomainUnhandledException;
+        TaskScheduler.UnobservedTaskException -= TaskSchedulerUnobservedTaskException;
+      }
     }
 
     /// <summary>
